@@ -560,57 +560,55 @@ export default function Home() {
 </div>
 </section>
 {/*  END: LeadFormSection  */}
-{/*  BEGIN: NewsletterSection  */}
-<section className="max-w-7xl mx-auto px-6 sm:px-8 pb-16" data-purpose="newsletter">
-<div className="bg-[#4a5240] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-lg">
-<h3 className="text-white font-semibold text-base sm:text-lg">Subscribe Newsletters</h3>
-{newsletterStatus ? (
-  <div className="text-white text-sm font-medium bg-green-500/20 px-4 py-2 rounded-full border border-green-500/50">
-    Subscribed successfully!
-  </div>
-) : (
-<form className="flex w-full sm:w-auto max-w-md gap-2" onSubmit={(e) => { e.preventDefault(); setNewsletterStatus(true); }}>
-<input required className="w-full sm:w-64 bg-white text-[#1a1c19] text-xs px-5 py-2.5 rounded-full border-0 placeholder-gray-400 focus:ring-2 focus:ring-white/50 outline-none" placeholder="Enter your email" type="email"/>
-<button className="bg-[#1a1c19] text-white text-xs font-medium px-6 py-2.5 rounded-full hover:bg-black transition-colors whitespace-nowrap shadow-sm" type="submit">
-          Subscribe Now
-        </button>
-</form>
-)}
-</div>
-</section>
-{/*  END: NewsletterSection  */}
 {/*  BEGIN: MainFooter  */}
-<footer className="bg-white border-t border-slate-200 pt-12 pb-8 text-xs text-slate-500" data-purpose="main-footer">
-<div className="max-w-7xl mx-auto px-6 sm:px-8">
-{/*  Footer Navigation and Social Links  */}
-<div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-100">
-<div className="flex items-center space-x-8 text-slate-600 font-medium text-xs">
-<a className="hover:text-slate-900 transition-colors" href="#about">About us</a>
-<a className="hover:text-slate-900 transition-colors" href="#properties">Discover</a>
-<a className="hover:text-slate-900 transition-colors" href="#neighborhood">Explore</a>
-<a className="hover:text-slate-900 transition-colors" href="#news">Books</a>
-</div>
-<div className="flex items-center space-x-4 text-slate-400">
-<a aria-label="Facebook" className="hover:text-[#4a5240] transition-colors text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-facebook-f"></i></a>
-<a aria-label="Twitter" className="hover:text-[#4a5240] transition-colors text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-twitter"></i></a>
-<a aria-label="Vimeo" className="hover:text-[#4a5240] transition-colors text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-vimeo-v"></i></a>
-<a aria-label="YouTube" className="hover:text-[#4a5240] transition-colors text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-youtube"></i></a>
-</div>
-</div>
-{/*  Footer Bottom with Logo & Copyright  */}
-<div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-[11px] text-slate-400">
-<div>
-          Copyright 2025. All right reserved
+<footer className="bg-[#181a1b] pt-24 pb-12 mt-16" data-purpose="main-footer">
+  <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 pb-20 items-start">
+      
+      {/* Newsletter Section */}
+      <div>
+        <h3 className="text-white text-3xl sm:text-4xl font-semibold mb-8 tracking-tight">NEWSLETTER</h3>
+        {newsletterStatus ? (
+          <div className="text-white text-sm font-medium bg-[#f97316]/20 px-6 py-4 rounded-full border border-[#f97316]/50 inline-block">
+            Subscribed successfully!
+          </div>
+        ) : (
+          <form className="flex w-full max-w-[420px] bg-white rounded-full p-[3px]" onSubmit={(e) => { e.preventDefault(); setNewsletterStatus(true); }}>
+            <input 
+              required 
+              className="flex-1 bg-transparent text-[#1a1c19] text-[11px] font-semibold tracking-wide px-6 py-3 border-0 placeholder-gray-400 focus:outline-none focus:ring-0" 
+              placeholder="ENTER YOUR EMAIL HERE" 
+              type="email"
+            />
+            <button 
+              className="bg-[#f97316] text-white text-[13px] font-semibold px-8 py-3 rounded-full hover:bg-[#ea580c] transition-colors whitespace-nowrap" 
+              type="submit">
+              Subscribe
+            </button>
+          </form>
+        )}
+      </div>
+      
+      {/* Follow Us Section */}
+      <div className="flex flex-col md:items-end md:text-right w-full">
+        <h3 className="text-white text-3xl sm:text-4xl font-semibold mb-8 tracking-tight w-full md:w-auto text-left md:text-right">FOLLOW US</h3>
+        <div className="flex items-center gap-4 w-full md:w-auto justify-start md:justify-end">
+          <a aria-label="Facebook" className="w-[46px] h-[46px] rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/90 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-facebook-f"></i></a>
+          <a aria-label="Instagram" className="w-[46px] h-[46px] rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/90 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-instagram"></i></a>
+          <a aria-label="YouTube" className="w-[46px] h-[46px] rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/90 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-youtube"></i></a>
+          <a aria-label="Twitter" className="w-[46px] h-[46px] rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/90 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-twitter"></i></a>
         </div>
-<div className="font-bold text-slate-800 text-sm tracking-tight">
-          Roman Builders
-        </div>
-<div className="flex space-x-4">
-<a className="hover:underline" href="#" onClick={handleDummyClick}>Terms of Service</a>
-<a className="hover:underline" href="#" onClick={handleDummyClick}>Privacy Policy</a>
-</div>
-</div>
-</div>
+      </div>
+
+    </div>
+    
+    {/* Bottom Copyright */}
+    <div className="border-t border-white/10 pt-8 text-center md:text-left">
+      <p className="text-[11px] text-gray-500 font-normal">
+        Copyright © 2024 | All Rights Reserved. Empowering Your Real Estate Journey. Together, We Build Your Future!
+      </p>
+    </div>
+  </div>
 </footer>
 {/*  END: MainFooter  */}
 
