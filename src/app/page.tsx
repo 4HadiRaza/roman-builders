@@ -51,6 +51,63 @@ export default function Home() {
       image: "/images/project2.jpg"
     },
     {
+      title: "Plot Handover",
+      icon: "fa-shield-halved",
+      heading: "Delivering on our Promises",
+      description: "We ensure transparent, timely handover of residential plots to our investors.",
+      image: "/images/project3.jpg"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveProcessStep((prev) => (prev + 1) % processSteps.length);
+    }, 4000); // Automatically cycle every 4 seconds
+    return () => clearInterval(timer);
+  }, [processSteps.length]);
+
+  return (
+    <main>
+
+{/*  BEGIN: HeroAndHeaderWrapper  */}
+<div 
+  className="relative overflow-hidden flex flex-col justify-between bg-cover bg-center bg-no-repeat"
+  style={{ backgroundImage: "url('/images/hero section.png')" }}
+>
+{/*  Large Havnex Watermark behind hero elements  */}
+<div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-full text-center text-[10rem] md:text-[18rem] font-black tracking-tight z-0 select-none bg-gradient-to-b from-black/[0.06] to-black/[0.01] bg-clip-text text-transparent leading-none pointer-events-none">
+      Roman
+    </div>
+{/*  BEGIN: MainHeader  */}
+<div className="fixed top-0 left-0 w-full z-50 px-4 sm:px-8 pt-4 sm:pt-6 pointer-events-none">
+  <header className="relative pointer-events-auto max-w-7xl mx-auto px-6 py-3 flex items-center justify-between bg-white/70 backdrop-blur-md rounded-full shadow-lg border border-white/50 transition-all">
+  {/*  Brand Logo  */}
+  <a className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1c19] flex flex-col justify-center leading-none hover:opacity-80 transition-opacity" data-purpose="brand-logo" href="#" onClick={handleDummyClick}>
+  <span>Roman Builders</span>
+  <span className="text-[10px] sm:text-xs text-[#1a1c19]/70 font-medium tracking-wide mt-1">& Developers</span>
+  </a>
+  {/*  Desktop Navigation Links  */}
+  <nav className="hidden md:flex items-center space-x-12 text-[13px] font-medium text-[#4a5240]" data-purpose="primary-navigation">
+  <a className="hover:text-[#1a1c19] transition-colors" href="#about">About us</a>
+  <a className="hover:text-[#1a1c19] transition-colors" href="#properties">Properties</a>
+  <a className="hover:text-[#1a1c19] transition-colors" href="#process">Services</a>
+  <a className="hover:text-[#1a1c19] transition-colors" href="#news">Blog</a>
+  </nav>
+  {/*  Action Icons & Button  */}
+  <div className="flex items-center space-x-4 sm:space-x-6" data-purpose="header-actions">
+  <button aria-label="Search" className="w-10 h-10 flex items-center justify-center bg-white rounded-full text-[#4a5240] hover:text-[#1a1c19] hover:bg-slate-50 transition-colors text-sm shadow-sm" type="button">
+  <i className="fa-solid fa-magnifying-glass"></i>
+  </button>
+  <a className="inline-flex items-center gap-2 bg-[#4a5240] text-white px-6 py-2.5 rounded-full text-[13px] font-medium hover:bg-[#3d4435] transition-colors shadow-sm" href="#contact">
+            <span>Contact us</span>
+            <i className="fa-solid fa-arrow-right text-[11px]"></i>
+          </a>
+  </div>
+  </header>
+</div>
+{/*  END: MainHeader  */}
+{/*  BEGIN: HeroSection  */}
+<section className="relative z-10 w-full pt-20 md:pt-24 pb-16 md:pb-20 min-h-screen flex items-center" data-purpose="hero-content">
 {/*  Hero House Visual (Absolute to bottom-right corner) - Commented out since we are using a full background image */}
 {/*
 <div className="hidden lg:flex absolute bottom-0 right-0 w-[55vw] max-w-[850px] z-0 pointer-events-none justify-end items-end [mask-image:linear-gradient(to_right,transparent,black_20%)]" data-purpose="hero-image-container">
