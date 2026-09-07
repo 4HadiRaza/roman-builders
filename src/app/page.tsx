@@ -85,10 +85,10 @@ export default function Home() {
       Roman
     </div>
 {/*  BEGIN: MainHeader  */}
-<div className="px-4 sm:px-8 pt-6 sm:pt-8">
-  <header className="relative z-20 max-w-7xl mx-auto px-6 py-3 flex items-center justify-between bg-white/40 backdrop-blur-md rounded-full shadow-sm border border-white/50">
+<div className="fixed top-0 left-0 w-full z-50 px-4 sm:px-8 pt-4 sm:pt-6 pointer-events-none">
+  <header className="relative pointer-events-auto max-w-7xl mx-auto px-6 py-3 flex items-center justify-between bg-white/70 backdrop-blur-md rounded-full shadow-lg border border-white/50 transition-all">
   {/*  Brand Logo  */}
-  <a className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1c19] flex flex-col justify-center leading-none" data-purpose="brand-logo" href="#" onClick={handleDummyClick}>
+  <a className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1c19] flex flex-col justify-center leading-none hover:opacity-80 transition-opacity" data-purpose="brand-logo" href="#" onClick={handleDummyClick}>
   <span>Roman Builders</span>
   <span className="text-[10px] sm:text-xs text-[#1a1c19]/70 font-medium tracking-wide mt-1">& Developers</span>
   </a>
@@ -113,7 +113,7 @@ export default function Home() {
 </div>
 {/*  END: MainHeader  */}
 {/*  BEGIN: HeroSection  */}
-<section className="relative z-10 w-full pt-20 md:pt-24 pb-16 md:pb-20 min-h-[600px] md:min-h-[700px] flex items-center" data-purpose="hero-content">
+<section className="relative z-10 w-full pt-20 md:pt-24 pb-16 md:pb-20 min-h-screen flex items-center" data-purpose="hero-content">
 {/*  Hero House Visual (Absolute to bottom-right corner) - Commented out since we are using a full background image */}
 {/*
 <div className="hidden lg:flex absolute bottom-0 right-0 w-[55vw] max-w-[850px] z-0 pointer-events-none justify-end items-end [mask-image:linear-gradient(to_right,transparent,black_20%)]" data-purpose="hero-image-container">
@@ -144,93 +144,361 @@ export default function Home() {
 </div>
 {/*  END: HeroAndHeaderWrapper  */}
 {/*  BEGIN: VideoSection  */}
-<section className="max-w-6xl mx-auto px-6 mt-16 relative z-20" data-purpose="video-presentation" id="about">
-<div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 aspect-[16/8] sm:aspect-[21/9] bg-slate-900 group">
-<video 
-  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-  src="/search_about_Prime_View_City_–.mp4" 
-  autoPlay 
-  loop 
-  muted 
-  playsInline
-/>
-{/*  Shaded dark overlay  */}
-<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 sm:p-10 text-white pointer-events-none">
-{/*  Video Bottom Captions  */}
-<div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
-<h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-white">Who are Roman Builders?</h2>
-<p className="text-xs text-white/80 max-w-sm sm:text-right font-light leading-relaxed">
-            Roman Builders & Developers is a premier real estate and construction firm in Abbottabad offering transparent society administration, architecture, interior design, and robust construction services.
-          </p>
-</div>
-</div>
-</div>
-</section>
-{/*  END: VideoSection  */}
+<section className="w-full bg-[#fdfcf8] relative overflow-hidden pt-20 pb-16 z-20" data-purpose="video-presentation" id="story">
+  
+  {/* Abstract Background SVG (Mountains/Curves) */}
+  <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center opacity-30">
+    <svg viewBox="0 0 1440 600" className="w-full h-full object-cover" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 450 Q 300 250 720 350 T 1440 250 L 1440 600 L 0 600 Z" fill="url(#paint0_linear)"/>
+      <path d="M0 350 Q 250 150 600 250 T 1440 150 L 1440 600 L 0 600 Z" stroke="#e0ddd0" strokeWidth="1" fill="transparent"/>
+      <path d="M0 450 C 300 350, 400 450, 720 350 C 1000 250, 1200 400, 1440 300 L 1440 600 L 0 600 Z" stroke="#e0ddd0" strokeWidth="2" fill="transparent"/>
+      <path d="M1000 300 L 1100 150 L 1200 300" stroke="#e0ddd0" strokeWidth="1.5" fill="transparent" strokeLinejoin="round"/>
+      <path d="M1100 250 L 1180 150 L 1280 300" stroke="#e0ddd0" strokeWidth="1.5" fill="transparent" strokeLinejoin="round"/>
+      <path d="M1250 250 L 1320 150 L 1420 250" stroke="#e0ddd0" strokeWidth="1.5" fill="transparent" strokeLinejoin="round"/>
+      <defs>
+        <linearGradient id="paint0_linear" x1="720" y1="250" x2="720" y2="600" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#f3f1e8" stopOpacity="0.8"/>
+          <stop offset="1" stopColor="#fdfcf8" stopOpacity="0"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
 
-{/*  BEGIN: AboutSection  */}
-<section className="max-w-7xl mx-auto px-6 sm:px-8 pt-24 pb-12" data-purpose="about-us">
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-    <div>
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4a5240]/10 text-[#4a5240] text-xs font-semibold mb-6">
-        <i className="fa-solid fa-building"></i>
-        <span>Our Expertise</span>
+  <div className="max-w-[90rem] mx-auto px-6 sm:px-8 relative z-10 flex flex-col items-center">
+    
+    {/* Header Area */}
+    <div className="flex flex-col items-center text-center mb-12">
+      {/* Eyebrow Pill */}
+      <div className="flex items-center gap-4 mb-6">
+        <div className="hidden sm:block w-16 h-[1px] bg-gray-300"></div>
+        <div className="bg-[#f2efe4] px-4 py-1.5 rounded-full flex items-center gap-2 border border-[#e0ddd0]">
+          <i className="fa-solid fa-video text-[10px] text-[#4a5240]"></i>
+          <span className="text-[9px] font-bold tracking-[0.2em] text-[#4a5240] uppercase">Our Story</span>
+        </div>
+        <div className="hidden sm:block w-16 h-[1px] bg-gray-300"></div>
       </div>
-      <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">What We Do at Roman Builders & Developers</h2>
-      <p className="text-sm text-slate-600 leading-relaxed mb-8">
-        We are Abbottabad&apos;s premier real estate and construction firm. We specialize in transforming raw landscapes into fully developed, legally approved, and thriving cooperative housing societies with unmatched transparency and build quality.
-      </p>
       
-      <div className="space-y-6">
-        <div className="flex gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-[#4a5240]/10 flex items-center justify-center shrink-0">
-            <i className="fa-solid fa-map-location-dot text-[#4a5240] text-lg"></i>
-          </div>
-          <div>
-            <h4 className="text-sm font-bold text-slate-800">Master Planning & Land Acquisition</h4>
-            <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">We identify prime locations and meticulously plan modern urban societies with sustainable infrastructure and community-focused layouts.</p>
-          </div>
-        </div>
-        
-        <div className="flex gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-[#4a5240]/10 flex items-center justify-center shrink-0">
-            <i className="fa-solid fa-file-contract text-[#4a5240] text-lg"></i>
-          </div>
-          <div>
-            <h4 className="text-sm font-bold text-slate-800">Legal Approvals & NOCs</h4>
-            <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">Our expert legal team navigates complex regulatory frameworks to secure TMA, EPA, and other required approvals swiftly and transparently.</p>
-          </div>
-        </div>
-        
-        <div className="flex gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-[#4a5240]/10 flex items-center justify-center shrink-0">
-            <i className="fa-solid fa-helmet-safety text-[#4a5240] text-lg"></i>
-          </div>
-          <div>
-            <h4 className="text-sm font-bold text-slate-800">World-Class Construction</h4>
-            <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">From robust roads and reliable sewerage systems to premium residential villas, we build everything with uncompromising quality standards.</p>
-          </div>
-        </div>
+      {/* Headings */}
+      <h2 className="text-3xl md:text-5xl lg:text-[3.5rem] font-serif text-[#161f18] leading-[1.1] tracking-tight mb-5">
+        More Than Buildings,<br/>A Brighter Abbottabad
+      </h2>
+      <p className="text-gray-500 text-[13px] md:text-sm max-w-2xl leading-relaxed">
+        Watch how Roman Builders is shaping communities in Abbottabad through<br className="hidden md:block" /> trust, quality construction, and a vision for a better tomorrow.
+      </p>
+    </div>
+
+    {/* 3-Column Layout: Left (Icons), Center (Video), Right (Quote) */}
+    <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 xl:gap-20 mb-12">
+      
+      {/* Left Column - Icons (Hidden on mobile & tablet) */}
+      <div className="hidden lg:flex flex-col justify-center gap-8 w-48 shrink-0 relative">
+         <div className="flex items-center gap-4 group">
+            <div className="w-12 h-12 rounded-full bg-[#f3f1e8] flex items-center justify-center border border-[#e0ddd0] group-hover:bg-[#4a5240] group-hover:text-white transition-colors duration-300">
+               <i className="fa-solid fa-house text-[#4a5240] group-hover:text-white transition-colors"></i>
+            </div>
+            <div>
+               <div className="font-bold text-[#161f18] text-sm">Better</div>
+               <div className="text-xs text-gray-500">Living Spaces</div>
+            </div>
+         </div>
+         <div className="flex items-center gap-4 group">
+            <div className="w-12 h-12 rounded-full bg-[#f3f1e8] flex items-center justify-center border border-[#e0ddd0] group-hover:bg-[#4a5240] group-hover:text-white transition-colors duration-300">
+               <i className="fa-solid fa-users text-[#4a5240] group-hover:text-white transition-colors"></i>
+            </div>
+            <div>
+               <div className="font-bold text-[#161f18] text-sm">Stronger</div>
+               <div className="text-xs text-gray-500">Communities</div>
+            </div>
+         </div>
+         <div className="flex items-center gap-4 group">
+            <div className="w-12 h-12 rounded-full bg-[#f3f1e8] flex items-center justify-center border border-[#e0ddd0] group-hover:bg-[#4a5240] group-hover:text-white transition-colors duration-300">
+               <i className="fa-solid fa-seedling text-[#4a5240] group-hover:text-white transition-colors"></i>
+            </div>
+            <div>
+               <div className="font-bold text-[#161f18] text-sm">Brighter</div>
+               <div className="text-xs text-gray-500">Tomorrow</div>
+            </div>
+         </div>
+      </div>
+
+      {/* Center Column - Video Container */}
+      <div className="w-full max-w-4xl relative rounded-3xl overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] group shrink border-[4px] border-white/50">
+         <div className="aspect-[16/9] sm:aspect-[21/9] lg:aspect-[16/8] w-full relative bg-slate-900">
+           <video 
+             className="w-full h-full object-cover" 
+             src="/search_about_Prime_View_City_–.mp4" 
+             autoPlay 
+             loop 
+             muted 
+             playsInline
+           />
+           {/* Dark Gradient Overlays for text legibility */}
+           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none"></div>
+
+           {/* Bottom Left - Title */}
+           <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-10">
+              <div className="flex gap-3 sm:gap-4">
+                 <div className="w-[2px] bg-white/70"></div>
+                 <div className="text-white text-base sm:text-xl lg:text-2xl font-serif leading-tight">
+                   Real Communities<br/>Real Progress
+                 </div>
+              </div>
+           </div>
+
+           {/* Bottom Right - Brand */}
+           <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 right-4 sm:right-6 lg:right-10 flex items-end">
+             <span className="text-[7px] sm:text-[9px] font-bold tracking-[0.25em] text-white/90 uppercase drop-shadow-md">Roman Builders</span>
+           </div>
+         </div>
+      </div>
+
+      {/* Right Column - Quote (Hidden on mobile & tablet) */}
+      <div className="hidden lg:flex flex-col justify-center w-48 shrink-0 relative">
+         <div className="absolute -left-6 top-1/2 -translate-y-1/2 text-[8rem] font-serif text-[#e0ddd0] opacity-50 select-none z-0 leading-none">
+           “
+         </div>
+         <div className="relative z-10 pl-6">
+            <p className="font-serif text-[#4a5240] text-[17px] leading-relaxed italic mb-4">
+              Building communities<br/>today for a<br/>brighter tomorrow.
+            </p>
+            <div className="w-12 h-[1px] bg-[#d5d2c5]"></div>
+         </div>
       </div>
     </div>
-    
-    <div className="relative mt-8 lg:mt-0">
-      <div className="absolute inset-0 bg-[#4a5240] rounded-3xl translate-x-4 translate-y-4 opacity-20"></div>
-      <img src="/29537c47-17e4-4cfd-aa65-3c72f7176cc1.jfif" alt="Roman Builders Leadership" className="relative rounded-3xl object-cover object-[center_85%] w-full aspect-[4/5] md:aspect-[4/5] lg:aspect-[3/4] shadow-lg" />
-      {/* Small floating stat badge */}
-      <div className="absolute -bottom-6 -left-2 sm:-left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 animate-bounce-slow">
-        <div className="w-10 h-10 rounded-full bg-[#4a5240] flex items-center justify-center text-white">
-          <i className="fa-solid fa-check"></i>
-        </div>
-        <div>
-          <div className="text-lg font-bold text-slate-900">100%</div>
-          <div className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Approved Projects</div>
-        </div>
-      </div>
+
+    {/* Footer Area */}
+    <div className="flex flex-col items-center mt-4">
+       {/* Button */}
+       <div className="flex items-center gap-4 sm:gap-6 mb-8">
+         <div className="w-12 sm:w-20 h-[1px] bg-gray-300"></div>
+         <a href="#" className="flex items-center gap-4 bg-[#4a5240] text-white pl-6 sm:pl-8 pr-1.5 py-1.5 rounded-full hover:bg-[#3d4435] transition-colors shadow-lg group">
+           <span className="text-[10px] sm:text-[11px] font-medium tracking-wide">Watch Our Story</span>
+           <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white text-[#4a5240] flex items-center justify-center group-hover:scale-105 transition-transform">
+              <i className="fa-solid fa-arrow-right text-[9px] sm:text-[10px]"></i>
+           </div>
+         </a>
+         <div className="w-12 sm:w-20 h-[1px] bg-gray-300"></div>
+       </div>
+
+       {/* Bottom Text */}
+       <div className="text-[8px] sm:text-[9px] font-bold tracking-[0.3em] text-gray-400 uppercase">
+         People • Places • Progress
+       </div>
     </div>
   </div>
 </section>
-{/*  END: AboutSection  */}
+{/*  END: VideoSection  */}
+
+{/*  BEGIN: ExpertiseSection  */}
+<section className="bg-[#fdfcf8] mt-12 pt-20 lg:pt-28 relative overflow-hidden" data-purpose="expertise" id="about">
+  
+  {/* Giant text positioned absolute bottom-left */}
+  <div className="absolute bottom-6 left-0 lg:left-4 pointer-events-none select-none z-0 hidden lg:block">
+    <div className="text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-serif italic text-gray-200/50 leading-[0.85] tracking-tight whitespace-nowrap">
+      A BRIGHTER<br/>TOMORROW
+    </div>
+  </div>
+
+  <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10 flex flex-col">
+    
+    <div className="flex flex-col lg:flex-row items-stretch">
+      
+      {/* Left Content Area */}
+      <div className="w-full lg:w-[60%] xl:w-[60%] lg:pr-10 xl:pr-16 pb-12 lg:pb-16 pt-2 relative z-20 flex flex-col">
+        {/* Eyebrow */}
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-8 h-[1px] bg-gray-400"></div>
+          <span className="text-[8px] font-bold tracking-[0.2em] text-gray-500 uppercase">Our Expertise</span>
+        </div>
+        
+        {/* Main Heading */}
+        <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-serif text-[#161f18] leading-[1.15] tracking-tight mb-4">
+          From Land to Communities,<br/>We Make It Happen
+        </h2>
+        
+        {/* Subheading */}
+        <p className="text-gray-500 text-[11px] sm:text-xs max-w-[420px] leading-relaxed mb-8">
+          At Roman Builders & Developers, we turn potential into thriving communities by combining strategic planning, legal expertise, and quality construction.
+        </p>
+        
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+          {/* Card 1 */}
+          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-4 border border-gray-100 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:-translate-y-1 transition-transform">
+            <div className="w-8 h-8 rounded-full bg-[#2c3325] text-white flex items-center justify-center mb-3 shadow-sm">
+              <i className="fa-solid fa-map-location-dot text-[11px]"></i>
+            </div>
+            <div className="text-[8px] text-gray-400 font-bold mb-1">01</div>
+            <h3 className="font-serif text-[13px] text-[#161f18] mb-1.5 leading-tight">Land Planning &<br/>Development</h3>
+            <p className="text-[9px] text-gray-500 leading-relaxed">
+              We identify prime locations and create well-planned societies for long-term value.
+            </p>
+          </div>
+          
+          {/* Card 2 */}
+          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-4 border border-gray-100 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:-translate-y-1 transition-transform">
+            <div className="w-8 h-8 rounded-full bg-[#2c3325] text-white flex items-center justify-center mb-3 shadow-sm">
+              <i className="fa-solid fa-file-contract text-[11px]"></i>
+            </div>
+            <div className="text-[8px] text-gray-400 font-bold mb-1">02</div>
+            <h3 className="font-serif text-[13px] text-[#161f18] mb-1.5 leading-tight">Legal Approvals<br/>& Compliance</h3>
+            <p className="text-[9px] text-gray-500 leading-relaxed">
+              Our experts handle all regulatory requirements with transparency and efficiency.
+            </p>
+          </div>
+          
+          {/* Card 3 */}
+          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-4 border border-gray-100 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:-translate-y-1 transition-transform">
+            <div className="w-8 h-8 rounded-full bg-[#2c3325] text-white flex items-center justify-center mb-3 shadow-sm">
+              <i className="fa-solid fa-helmet-safety text-[11px]"></i>
+            </div>
+            <div className="text-[8px] text-gray-400 font-bold mb-1">03</div>
+            <h3 className="font-serif text-[13px] text-[#161f18] mb-1.5 leading-tight">Quality<br/>Construction</h3>
+            <p className="text-[9px] text-gray-500 leading-relaxed">
+              We build modern infrastructure and community spaces with lasting standards.
+            </p>
+          </div>
+        </div>
+        
+        {/* CTA & Small Text */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <a href="#" className="inline-flex items-center gap-1.5 bg-[#2c3325] text-white px-5 py-2.5 rounded-full text-[11px] font-medium hover:bg-[#1a1f15] transition-colors shadow-lg group">
+            Explore Our Work
+            <i className="fa-solid fa-arrow-right text-[9px] group-hover:translate-x-1 transition-transform"></i>
+          </a>
+          <div className="flex items-center gap-2 text-[7px] font-bold tracking-[0.2em] text-gray-400 uppercase">
+             <div className="w-5 h-[1px] bg-gray-300"></div>
+             PEOPLE • PLACES • PROGRESS
+          </div>
+        </div>
+        
+        {/* Bottom "Sustainable" text pushed to bottom of left column on desktop */}
+        <div className="hidden lg:flex flex-1 items-end mt-12">
+          <div className="flex items-center gap-3">
+             <div className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase leading-relaxed text-left">
+               Sustainable<br/>Communities<br/>For Generations
+             </div>
+             <div className="w-12 h-[1px] bg-gray-300"></div>
+          </div>
+        </div>
+
+      </div>
+      
+      {/* Right Image Area & Stats (Mobile & Tablet) */}
+      <div className="block lg:hidden w-full relative mt-8 mb-6 rounded-t-[3rem] rounded-bl-[3rem] overflow-hidden shadow-2xl">
+         <div className="w-full h-[300px] relative">
+            <img src="/images/expertise-render.jpg" alt="Estate Entrance" className="w-full h-full object-cover absolute inset-0 z-0" />
+            
+            <div className="absolute top-6 right-6 z-20 flex gap-2">
+              <div className="w-[1px] h-8 bg-black/80"></div>
+              <div className="text-[7px] font-bold tracking-[0.25em] uppercase leading-relaxed text-left text-black/80">
+                Better<br/>Communities<br/>Brighter<br/>Futures
+              </div>
+            </div>
+         </div>
+         
+         {/* Mobile Green Box with overlap */}
+         <div className="w-full bg-[#2b3628] rounded-bl-[3rem] rounded-tl-[2rem] -mt-6 z-10 relative flex flex-col p-6 gap-6">
+            <div className="flex flex-col justify-center border-b border-white/20 pb-6">
+              <h3 className="font-serif text-xl sm:text-2xl text-white mb-3 leading-tight">More Than<br/>Properties</h3>
+              <div className="w-8 h-[1px] bg-white/20 mb-3"></div>
+              <p className="text-gray-300 text-[11px] font-light leading-relaxed max-w-[200px]">
+                We build communities where people belong.
+              </p>
+            </div>
+            
+            <div className="flex flex-col gap-4">
+               <div className="flex items-center gap-3">
+                  <i className="fa-solid fa-users text-white/70 text-sm w-4 text-center"></i>
+                  <div>
+                    <div className="font-bold text-xs text-white mb-0.5">1000+</div>
+                    <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">Families to be Served</div>
+                  </div>
+               </div>
+               
+               <div className="flex items-center gap-3">
+                  <i className="fa-solid fa-seedling text-white/70 text-sm w-4 text-center"></i>
+                  <div>
+                    <div className="font-bold text-xs text-white mb-0.5">5+</div>
+                    <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">Upcoming Projects</div>
+                  </div>
+               </div>
+               
+               <div className="flex items-center gap-3">
+                  <i className="fa-solid fa-mountain-sun text-white/70 text-sm w-4 text-center"></i>
+                  <div>
+                    <div className="font-bold text-xs text-white mb-0.5">A Brighter Tomorrow</div>
+                    <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">for Generations</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+    </div>
+  </div>
+
+  {/* Right Side Background Image & Stats Box (Desktop) */}
+  <div className="hidden lg:block absolute top-10 lg:top-16 right-0 w-[38%] xl:w-[38%] bottom-16 z-0">
+    
+    {/* Parent Container (clipped curves) */}
+    <div className="w-full h-full rounded-tl-[6rem] rounded-bl-[6rem] overflow-hidden relative shadow-2xl bg-gray-900">
+      
+      {/* Background Image */}
+      <img src="/images/expertise-render.jpg" alt="Estate Entrance" className="w-full h-full object-cover object-center absolute inset-0 z-0 opacity-90" />
+      
+      {/* Floating Top-Right Text */}
+      <div className="absolute top-10 right-10 z-20 flex gap-3">
+        <div className="w-[1px] h-10 bg-black/80"></div>
+        <div className="text-[8px] font-bold tracking-[0.25em] uppercase leading-relaxed text-left text-black/80">
+          Better<br/>Communities<br/>Brighter<br/>Futures
+        </div>
+      </div>
+
+      {/* Overlapping Dark Green Stats Box inside Image Container */}
+      <div className="absolute bottom-0 left-0 w-full bg-[#2b3628] rounded-bl-[6rem] rounded-tl-[3.5rem] z-10 flex p-8 xl:p-10 xl:px-12 items-center border-t border-white/5">
+         
+         {/* Left Side (40%) */}
+         <div className="w-[40%] flex flex-col justify-center pr-6">
+            <h3 className="font-serif text-2xl xl:text-3xl text-white mb-3 leading-tight">More Than<br/>Properties</h3>
+            <div className="w-10 h-[1px] bg-white/20 mb-4"></div>
+            <p className="text-gray-300 text-[10px] xl:text-[11px] font-light leading-relaxed">
+              We build communities where people belong.
+            </p>
+         </div>
+         
+         {/* Right Side (60%) with Vertical Divider */}
+         <div className="w-[60%] flex flex-col gap-4 border-l border-white/20 pl-6 xl:pl-8">
+            <div className="flex items-center gap-3">
+               <i className="fa-solid fa-users text-white/70 text-sm w-4 text-center"></i>
+               <div>
+                 <div className="font-bold text-xs text-white mb-0.5">1000+</div>
+                 <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">Families to be Served</div>
+               </div>
+            </div>
+            <div className="flex items-center gap-3">
+               <i className="fa-solid fa-seedling text-white/70 text-sm w-4 text-center"></i>
+               <div>
+                 <div className="font-bold text-xs text-white mb-0.5">5+</div>
+                 <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">Upcoming Projects</div>
+               </div>
+            </div>
+            <div className="flex items-center gap-3">
+               <i className="fa-solid fa-mountain-sun text-white/70 text-sm w-4 text-center"></i>
+               <div>
+                 <div className="font-bold text-xs text-white mb-0.5">A Brighter Tomorrow</div>
+                 <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">for Generations</div>
+               </div>
+            </div>
+         </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
+{/*  END: ExpertiseSection  */}
 
 {/*  BEGIN: PopularPropertySection  */}
 <section className="max-w-7xl mx-auto px-6 sm:px-8 py-20" data-purpose="popular-properties" id="properties">
