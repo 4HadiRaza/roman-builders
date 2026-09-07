@@ -22,8 +22,9 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
       </head>
-      <body className={`${outfit.variable} ${playfair.variable} font-sans bg-[#F8FAFC] text-slate-800 antialiased`}>
+      <body className={`${outfit.variable} ${playfair.variable} font-sans bg-[#e8e4db] text-slate-800 antialiased`}>
         {children}
       </body>
     </html>

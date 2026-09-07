@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   const [newsletterStatus, setNewsletterStatus] = useState(false);
@@ -50,63 +51,6 @@ export default function Home() {
       image: "/images/project2.jpg"
     },
     {
-      title: "Plot Handover",
-      icon: "fa-shield-halved",
-      heading: "Delivering on our Promises",
-      description: "We ensure transparent, timely handover of residential plots to our investors.",
-      image: "/images/project3.jpg"
-    }
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveProcessStep((prev) => (prev + 1) % processSteps.length);
-    }, 4000); // Automatically cycle every 4 seconds
-    return () => clearInterval(timer);
-  }, [processSteps.length]);
-
-  return (
-    <main>
-
-{/*  BEGIN: HeroAndHeaderWrapper  */}
-<div 
-  className="relative overflow-hidden flex flex-col justify-between bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: "url('/images/hero section.png')" }}
->
-{/*  Large Havnex Watermark behind hero elements  */}
-<div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-full text-center text-[10rem] md:text-[18rem] font-black tracking-tight z-0 select-none bg-gradient-to-b from-black/[0.06] to-black/[0.01] bg-clip-text text-transparent leading-none pointer-events-none">
-      Roman
-    </div>
-{/*  BEGIN: MainHeader  */}
-<div className="fixed top-0 left-0 w-full z-50 px-4 sm:px-8 pt-4 sm:pt-6 pointer-events-none">
-  <header className="relative pointer-events-auto max-w-7xl mx-auto px-6 py-3 flex items-center justify-between bg-white/70 backdrop-blur-md rounded-full shadow-lg border border-white/50 transition-all">
-  {/*  Brand Logo  */}
-  <a className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1c19] flex flex-col justify-center leading-none hover:opacity-80 transition-opacity" data-purpose="brand-logo" href="#" onClick={handleDummyClick}>
-  <span>Roman Builders</span>
-  <span className="text-[10px] sm:text-xs text-[#1a1c19]/70 font-medium tracking-wide mt-1">& Developers</span>
-  </a>
-  {/*  Desktop Navigation Links  */}
-  <nav className="hidden md:flex items-center space-x-12 text-[13px] font-medium text-[#4a5240]" data-purpose="primary-navigation">
-  <a className="hover:text-[#1a1c19] transition-colors" href="#about">About us</a>
-  <a className="hover:text-[#1a1c19] transition-colors" href="#properties">Properties</a>
-  <a className="hover:text-[#1a1c19] transition-colors" href="#process">Services</a>
-  <a className="hover:text-[#1a1c19] transition-colors" href="#news">Blog</a>
-  </nav>
-  {/*  Action Icons & Button  */}
-  <div className="flex items-center space-x-4 sm:space-x-6" data-purpose="header-actions">
-  <button aria-label="Search" className="w-10 h-10 flex items-center justify-center bg-white rounded-full text-[#4a5240] hover:text-[#1a1c19] hover:bg-slate-50 transition-colors text-sm shadow-sm" type="button">
-  <i className="fa-solid fa-magnifying-glass"></i>
-  </button>
-  <a className="inline-flex items-center gap-2 bg-[#4a5240] text-white px-6 py-2.5 rounded-full text-[13px] font-medium hover:bg-[#3d4435] transition-colors shadow-sm" href="#contact">
-            <span>Contact us</span>
-            <i className="fa-solid fa-arrow-right text-[11px]"></i>
-          </a>
-  </div>
-  </header>
-</div>
-{/*  END: MainHeader  */}
-{/*  BEGIN: HeroSection  */}
-<section className="relative z-10 w-full pt-20 md:pt-24 pb-16 md:pb-20 min-h-screen flex items-center" data-purpose="hero-content">
 {/*  Hero House Visual (Absolute to bottom-right corner) - Commented out since we are using a full background image */}
 {/*
 <div className="hidden lg:flex absolute bottom-0 right-0 w-[55vw] max-w-[850px] z-0 pointer-events-none justify-end items-end [mask-image:linear-gradient(to_right,transparent,black_20%)]" data-purpose="hero-image-container">
@@ -283,210 +227,153 @@ export default function Home() {
 {/*  END: VideoSection  */}
 
 {/*  BEGIN: ExpertiseSection  */}
-<section className="bg-[#fdfcf8] mt-12 pt-20 lg:pt-28 relative overflow-hidden" data-purpose="expertise" id="about">
+<section className="mt-12 pt-16 lg:pt-24 pb-12 relative overflow-hidden" data-purpose="expertise" id="about">
   
   {/* Giant text positioned absolute bottom-left */}
-  <div className="absolute bottom-6 left-0 lg:left-4 pointer-events-none select-none z-0 hidden lg:block">
-    <div className="text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-serif italic text-gray-200/50 leading-[0.85] tracking-tight whitespace-nowrap">
-      A BRIGHTER<br/>TOMORROW
+  <div className="absolute -bottom-8 -left-4 pointer-events-none select-none z-0 hidden lg:block opacity-[0.03]">
+    <div className="text-[5rem] lg:text-[7rem] font-serif italic text-[#4a5240] leading-[0.85] tracking-tight whitespace-nowrap">
+      A BRIGHTER<br/>
+      <span className="text-[3rem] lg:text-[4rem] font-sans font-bold tracking-[0.2em] uppercase not-italic">TOMORROW</span>
     </div>
   </div>
 
-  <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10 flex flex-col">
+  <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
     
-    <div className="flex flex-col lg:flex-row items-stretch">
+    <div className="flex flex-col lg:flex-row items-stretch lg:gap-12 xl:gap-20">
       
-      {/* Left Content Area */}
-      <div className="w-full lg:w-[60%] xl:w-[60%] lg:pr-10 xl:pr-16 pb-12 lg:pb-16 pt-2 relative z-20 flex flex-col">
+      {/* Left Content Area (approx 45%) */}
+      <div className="w-full lg:w-[45%] xl:w-[45%] pb-12 lg:pb-32 pt-2 relative z-20 flex flex-col justify-center">
+        
         {/* Eyebrow */}
-        <div className="flex items-center gap-3 mb-5">
-          <div className="w-8 h-[1px] bg-gray-400"></div>
-          <span className="text-[8px] font-bold tracking-[0.2em] text-gray-500 uppercase">Our Expertise</span>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-12 h-[1px] bg-[#1a1c19]/30"></div>
+          <span className="text-[9px] font-bold tracking-[0.25em] text-[#1a1c19]/60 uppercase">Our Expertise</span>
         </div>
         
         {/* Main Heading */}
-        <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-serif text-[#161f18] leading-[1.15] tracking-tight mb-4">
-          From Land to Communities,<br/>We Make It Happen
+        <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-serif text-[#161f18] leading-[1.05] tracking-tight mb-6">
+          From Land to<br/>
+          Communities,<br/>
+          We Make It Happen
         </h2>
         
         {/* Subheading */}
-        <p className="text-gray-500 text-[11px] sm:text-xs max-w-[420px] leading-relaxed mb-8">
+        <p className="text-gray-600 text-[13px] sm:text-[15px] max-w-md leading-relaxed mb-10 font-medium">
           At Roman Builders & Developers, we turn potential into thriving communities by combining strategic planning, legal expertise, and quality construction.
         </p>
         
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+        {/* Services Grid (Horizontal on desktop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           {/* Card 1 */}
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-4 border border-gray-100 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:-translate-y-1 transition-transform">
-            <div className="w-8 h-8 rounded-full bg-[#2c3325] text-white flex items-center justify-center mb-3 shadow-sm">
-              <i className="fa-solid fa-map-location-dot text-[11px]"></i>
+          <div className="bg-[#fcfbf9] rounded-3xl p-5 sm:p-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] border border-[#e0ddd0]/50 hover:-translate-y-1 transition-transform">
+            <div className="w-10 h-10 rounded-full bg-[#e8e5da] text-[#4a5240] flex items-center justify-center mb-4">
+              <i className="fa-solid fa-map-location-dot text-[13px]"></i>
             </div>
-            <div className="text-[8px] text-gray-400 font-bold mb-1">01</div>
-            <h3 className="font-serif text-[13px] text-[#161f18] mb-1.5 leading-tight">Land Planning &<br/>Development</h3>
-            <p className="text-[9px] text-gray-500 leading-relaxed">
+            <div className="text-[10px] text-gray-900 font-bold mb-2">01</div>
+            <h3 className="font-serif text-[15px] text-[#161f18] mb-2 leading-tight">Land Planning &<br/>Development</h3>
+            <p className="text-[10px] text-gray-500 leading-relaxed font-medium">
               We identify prime locations and create well-planned societies for long-term value.
             </p>
           </div>
           
           {/* Card 2 */}
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-4 border border-gray-100 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:-translate-y-1 transition-transform">
-            <div className="w-8 h-8 rounded-full bg-[#2c3325] text-white flex items-center justify-center mb-3 shadow-sm">
-              <i className="fa-solid fa-file-contract text-[11px]"></i>
+          <div className="bg-[#fcfbf9] rounded-3xl p-5 sm:p-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] border border-[#e0ddd0]/50 hover:-translate-y-1 transition-transform">
+            <div className="w-10 h-10 rounded-full bg-[#e8e5da] text-[#4a5240] flex items-center justify-center mb-4">
+              <i className="fa-solid fa-file-contract text-[13px]"></i>
             </div>
-            <div className="text-[8px] text-gray-400 font-bold mb-1">02</div>
-            <h3 className="font-serif text-[13px] text-[#161f18] mb-1.5 leading-tight">Legal Approvals<br/>& Compliance</h3>
-            <p className="text-[9px] text-gray-500 leading-relaxed">
+            <div className="text-[10px] text-gray-900 font-bold mb-2">02</div>
+            <h3 className="font-serif text-[15px] text-[#161f18] mb-2 leading-tight">Legal Approvals<br/>& Compliance</h3>
+            <p className="text-[10px] text-gray-500 leading-relaxed font-medium">
               Our experts handle all regulatory requirements with transparency and efficiency.
             </p>
           </div>
           
           {/* Card 3 */}
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-4 border border-gray-100 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:-translate-y-1 transition-transform">
-            <div className="w-8 h-8 rounded-full bg-[#2c3325] text-white flex items-center justify-center mb-3 shadow-sm">
-              <i className="fa-solid fa-helmet-safety text-[11px]"></i>
+          <div className="bg-[#fcfbf9] rounded-3xl p-5 sm:p-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] border border-[#e0ddd0]/50 hover:-translate-y-1 transition-transform">
+            <div className="w-10 h-10 rounded-full bg-[#e8e5da] text-[#4a5240] flex items-center justify-center mb-4">
+              <i className="fa-solid fa-helmet-safety text-[13px]"></i>
             </div>
-            <div className="text-[8px] text-gray-400 font-bold mb-1">03</div>
-            <h3 className="font-serif text-[13px] text-[#161f18] mb-1.5 leading-tight">Quality<br/>Construction</h3>
-            <p className="text-[9px] text-gray-500 leading-relaxed">
+            <div className="text-[10px] text-gray-900 font-bold mb-2">03</div>
+            <h3 className="font-serif text-[15px] text-[#161f18] mb-2 leading-tight">Quality<br/>Construction</h3>
+            <p className="text-[10px] text-gray-500 leading-relaxed font-medium">
               We build modern infrastructure and community spaces with lasting standards.
             </p>
           </div>
         </div>
         
         {/* CTA & Small Text */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <a href="#" className="inline-flex items-center gap-1.5 bg-[#2c3325] text-white px-5 py-2.5 rounded-full text-[11px] font-medium hover:bg-[#1a1f15] transition-colors shadow-lg group">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <a href="#" className="inline-flex items-center gap-2 bg-[#3d4435] text-white px-6 py-3 rounded-full text-[12px] font-medium hover:bg-[#2c3325] transition-colors shadow-lg group">
             Explore Our Work
-            <i className="fa-solid fa-arrow-right text-[9px] group-hover:translate-x-1 transition-transform"></i>
+            <i className="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
           </a>
-          <div className="flex items-center gap-2 text-[7px] font-bold tracking-[0.2em] text-gray-400 uppercase">
-             <div className="w-5 h-[1px] bg-gray-300"></div>
+          <div className="flex items-center gap-3 text-[8px] font-bold tracking-[0.25em] text-[#1a1c19]/60 uppercase">
+             <div className="w-8 h-[1px] bg-[#1a1c19]/20"></div>
              PEOPLE • PLACES • PROGRESS
           </div>
         </div>
+      </div>
+      
+      {/* Right Image Area (approx 55%) */}
+      <div className="w-full lg:w-[55%] xl:w-[55%] relative mt-10 lg:mt-0 lg:pl-10">
         
-        {/* Bottom "Sustainable" text pushed to bottom of left column on desktop */}
-        <div className="hidden lg:flex flex-1 items-end mt-12">
-          <div className="flex items-center gap-3">
-             <div className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase leading-relaxed text-left">
-               Sustainable<br/>Communities<br/>For Generations
-             </div>
-             <div className="w-12 h-[1px] bg-gray-300"></div>
+        {/* Image Container */}
+        <div className="w-full h-[400px] sm:h-[500px] lg:h-[700px] rounded-tl-[6rem] lg:rounded-tl-[10rem] overflow-hidden relative shadow-2xl">
+          <img src="/images/expertise-house.jpg" alt="Luxury Villa" className="w-full h-full object-cover object-center absolute inset-0 z-0" />
+          
+          {/* Floating Text on Image (Sky) */}
+          <div className="absolute top-12 left-10 lg:top-20 lg:left-16 z-10 flex flex-col items-start gap-2">
+            <div className="text-[#161f18] text-5xl lg:text-7xl drop-shadow-sm pr-4" style={{ fontFamily: "'Great Vibes', cursive", transform: 'rotate(-4deg)' }}>Building</div>
+            <div className="flex flex-col text-[8px] font-bold tracking-[0.3em] uppercase text-[#161f18] leading-relaxed ml-2 drop-shadow-sm">
+              <span>BETTER</span>
+              <span>COMMUNITIES</span>
+              <span>BRIGHTER</span>
+              <span>FUTURES</span>
+              <div className="w-8 h-[1px] bg-[#161f18] mt-2"></div>
+            </div>
           </div>
         </div>
-
-      </div>
-      
-      {/* Right Image Area & Stats (Mobile & Tablet) */}
-      <div className="block lg:hidden w-full relative mt-8 mb-6 rounded-t-[3rem] rounded-bl-[3rem] overflow-hidden shadow-2xl">
-         <div className="w-full h-[300px] relative">
-            <img src="/images/expertise-render.jpg" alt="Estate Entrance" className="w-full h-full object-cover absolute inset-0 z-0" />
-            
-            <div className="absolute top-6 right-6 z-20 flex gap-2">
-              <div className="w-[1px] h-8 bg-black/80"></div>
-              <div className="text-[7px] font-bold tracking-[0.25em] uppercase leading-relaxed text-left text-black/80">
-                Better<br/>Communities<br/>Brighter<br/>Futures
-              </div>
-            </div>
-         </div>
-         
-         {/* Mobile Green Box with overlap */}
-         <div className="w-full bg-[#2b3628] rounded-bl-[3rem] rounded-tl-[2rem] -mt-6 z-10 relative flex flex-col p-6 gap-6">
-            <div className="flex flex-col justify-center border-b border-white/20 pb-6">
-              <h3 className="font-serif text-xl sm:text-2xl text-white mb-3 leading-tight">More Than<br/>Properties</h3>
-              <div className="w-8 h-[1px] bg-white/20 mb-3"></div>
-              <p className="text-gray-300 text-[11px] font-light leading-relaxed max-w-[200px]">
-                We build communities where people belong.
+        
+        {/* Overlapping Dark Green Stats Box */}
+        <div className="absolute bottom-[-20px] lg:bottom-12 left-0 lg:-left-16 w-full lg:w-[calc(100%+4rem)] bg-[#3d4435] rounded-[2rem] lg:rounded-[3rem] z-30 flex flex-col sm:flex-row p-8 lg:p-12 items-center shadow-2xl">
+           
+           {/* Left Side (approx 45%) */}
+           <div className="w-full sm:w-[45%] flex flex-col justify-center pr-6 mb-8 sm:mb-0 border-b sm:border-b-0 sm:border-r border-white/10 pb-8 sm:pb-0">
+              <div className="text-[9px] font-bold tracking-[0.25em] text-white/50 uppercase mb-3">MORE THAN</div>
+              <h3 className="font-serif text-3xl lg:text-5xl text-white mb-6 leading-tight">Properties</h3>
+              <p className="text-white/70 text-[12px] lg:text-[14px] font-light leading-relaxed max-w-[200px]">
+                We build communities<br/>where people belong.
               </p>
-            </div>
-            
-            <div className="flex flex-col gap-4">
-               <div className="flex items-center gap-3">
-                  <i className="fa-solid fa-users text-white/70 text-sm w-4 text-center"></i>
-                  <div>
-                    <div className="font-bold text-xs text-white mb-0.5">1000+</div>
-                    <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">Families to be Served</div>
-                  </div>
-               </div>
-               
-               <div className="flex items-center gap-3">
-                  <i className="fa-solid fa-seedling text-white/70 text-sm w-4 text-center"></i>
-                  <div>
-                    <div className="font-bold text-xs text-white mb-0.5">5+</div>
-                    <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">Upcoming Projects</div>
-                  </div>
-               </div>
-               
-               <div className="flex items-center gap-3">
-                  <i className="fa-solid fa-mountain-sun text-white/70 text-sm w-4 text-center"></i>
-                  <div>
-                    <div className="font-bold text-xs text-white mb-0.5">A Brighter Tomorrow</div>
-                    <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">for Generations</div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      
-    </div>
-  </div>
-
-  {/* Right Side Background Image & Stats Box (Desktop) */}
-  <div className="hidden lg:block absolute top-10 lg:top-16 right-0 w-[38%] xl:w-[38%] bottom-16 z-0">
-    
-    {/* Parent Container (clipped curves) */}
-    <div className="w-full h-full rounded-tl-[6rem] rounded-bl-[6rem] overflow-hidden relative shadow-2xl bg-gray-900">
-      
-      {/* Background Image */}
-      <img src="/images/expertise-render.jpg" alt="Estate Entrance" className="w-full h-full object-cover object-center absolute inset-0 z-0 opacity-90" />
-      
-      {/* Floating Top-Right Text */}
-      <div className="absolute top-10 right-10 z-20 flex gap-3">
-        <div className="w-[1px] h-10 bg-black/80"></div>
-        <div className="text-[8px] font-bold tracking-[0.25em] uppercase leading-relaxed text-left text-black/80">
-          Better<br/>Communities<br/>Brighter<br/>Futures
+           </div>
+           
+           {/* Right Side (approx 55%) */}
+           <div className="w-full sm:w-[55%] flex flex-col gap-6 pl-0 sm:pl-8 lg:pl-12">
+              <div className="flex items-center gap-4">
+                 <div className="w-8 flex justify-center text-white/70"><i className="fa-solid fa-users text-lg lg:text-xl"></i></div>
+                 <div>
+                   <div className="font-bold text-sm lg:text-base text-white mb-0.5">1000+</div>
+                   <div className="text-[8px] lg:text-[9px] text-white/50 uppercase tracking-[0.2em] font-bold">FAMILIES TO BE SERVED</div>
+                 </div>
+              </div>
+              <div className="flex items-center gap-4">
+                 <div className="w-8 flex justify-center text-white/70"><i className="fa-solid fa-seedling text-lg lg:text-xl"></i></div>
+                 <div>
+                   <div className="font-bold text-sm lg:text-base text-white mb-0.5">5+</div>
+                   <div className="text-[8px] lg:text-[9px] text-white/50 uppercase tracking-[0.2em] font-bold">UPCOMING PROJECTS</div>
+                 </div>
+              </div>
+              <div className="flex items-center gap-4">
+                 <div className="w-8 flex justify-center text-white/70"><i className="fa-solid fa-mountain-sun text-lg lg:text-xl"></i></div>
+                 <div>
+                   <div className="font-bold text-sm lg:text-base text-white mb-0.5">A Brighter Tomorrow</div>
+                   <div className="text-[8px] lg:text-[9px] text-white/50 uppercase tracking-[0.2em] font-bold">FOR GENERATIONS</div>
+                 </div>
+              </div>
+           </div>
+  
         </div>
       </div>
-
-      {/* Overlapping Dark Green Stats Box inside Image Container */}
-      <div className="absolute bottom-0 left-0 w-full bg-[#2b3628] rounded-bl-[6rem] rounded-tl-[3.5rem] z-10 flex p-8 xl:p-10 xl:px-12 items-center border-t border-white/5">
-         
-         {/* Left Side (40%) */}
-         <div className="w-[40%] flex flex-col justify-center pr-6">
-            <h3 className="font-serif text-2xl xl:text-3xl text-white mb-3 leading-tight">More Than<br/>Properties</h3>
-            <div className="w-10 h-[1px] bg-white/20 mb-4"></div>
-            <p className="text-gray-300 text-[10px] xl:text-[11px] font-light leading-relaxed">
-              We build communities where people belong.
-            </p>
-         </div>
-         
-         {/* Right Side (60%) with Vertical Divider */}
-         <div className="w-[60%] flex flex-col gap-4 border-l border-white/20 pl-6 xl:pl-8">
-            <div className="flex items-center gap-3">
-               <i className="fa-solid fa-users text-white/70 text-sm w-4 text-center"></i>
-               <div>
-                 <div className="font-bold text-xs text-white mb-0.5">1000+</div>
-                 <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">Families to be Served</div>
-               </div>
-            </div>
-            <div className="flex items-center gap-3">
-               <i className="fa-solid fa-seedling text-white/70 text-sm w-4 text-center"></i>
-               <div>
-                 <div className="font-bold text-xs text-white mb-0.5">5+</div>
-                 <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">Upcoming Projects</div>
-               </div>
-            </div>
-            <div className="flex items-center gap-3">
-               <i className="fa-solid fa-mountain-sun text-white/70 text-sm w-4 text-center"></i>
-               <div>
-                 <div className="font-bold text-xs text-white mb-0.5">A Brighter Tomorrow</div>
-                 <div className="text-[8px] text-gray-400 uppercase tracking-widest font-semibold">for Generations</div>
-               </div>
-            </div>
-         </div>
-
-      </div>
-
+      
     </div>
   </div>
 
@@ -711,33 +598,6 @@ export default function Home() {
             <a href="#" onClick={handleDummyClick} className="text-[#1a1c19] text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 hover:text-[#4a5240] transition-colors border-b-2 border-[#1a1c19] pb-0.5">Learn More <i className="fa-solid fa-arrow-right"></i></a>
             <div className="font-serif italic text-xl text-gray-800/80 -rotate-3 pr-2">Liaqat Khan Jadoon</div>
           </div>
-        </div>
-      </div>
-    </div>
-    
-    {/* Bottom Banner */}
-    <div className="mt-16 bg-[#e8e4db]/80 rounded-2xl p-5 sm:p-6 flex flex-col lg:flex-row items-center justify-between gap-6 border border-white/50 shadow-sm relative overflow-hidden">
-      <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-12 relative z-10 w-full lg:w-auto">
-        <div className="flex items-center gap-3">
-          <i className="fa-solid fa-people-group text-xl text-[#4a5240]"></i>
-          <span className="text-[11px] font-bold text-[#1a1c19] leading-tight">Stronger<br/>Communities</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <i className="fa-solid fa-leaf text-xl text-[#4a5240]"></i>
-          <span className="text-[11px] font-bold text-[#1a1c19] leading-tight">Better<br/>Living Spaces</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <i className="fa-solid fa-handshake-angle text-xl text-[#4a5240]"></i>
-          <span className="text-[11px] font-bold text-[#1a1c19] leading-tight">A Brighter<br/>Tomorrow</span>
-        </div>
-      </div>
-      
-      <div className="flex items-center gap-4 relative z-10 lg:ml-auto">
-        <div className="text-[9px] font-bold tracking-[0.2em] text-[#4a5240]/60 uppercase text-right leading-relaxed">
-          A Legacy<br/>In Progress
-        </div>
-        <div className="w-24 h-16 rounded-xl bg-white overflow-hidden shadow-sm border border-white">
-           <img src="/images/hero.jpg" alt="Legacy" className="w-full h-full object-cover" />
         </div>
       </div>
     </div>
@@ -983,15 +843,15 @@ export default function Home() {
 
     {/* Center - Floating Testimonial Card (overlaps both sides on desktop) */}
     <div className="absolute z-20 top-1/2 left-[38%] -translate-y-1/2 hidden lg:block w-[260px]">
-      <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/60">
+      <div className="bg-[#4a5240]/95 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/10">
         {/* Author */}
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-10 rounded-full bg-[#4a5240] flex items-center justify-center text-white font-bold text-sm border-2 border-white shadow-md">
+          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-sm border-2 border-white/30 shadow-md">
             {testimonials[testOffset].name.charAt(0)}
           </div>
           <div>
-            <div className="text-[13px] font-semibold text-[#161f18]">{testimonials[testOffset].name}</div>
-            <div className="text-[10px] text-gray-400">{testimonials[testOffset].role}</div>
+            <div className="text-[13px] font-semibold text-white">{testimonials[testOffset].name}</div>
+            <div className="text-[10px] text-white/60">{testimonials[testOffset].role}</div>
           </div>
         </div>
         {/* Stars */}
@@ -1003,22 +863,22 @@ export default function Home() {
           <i className="fa-solid fa-star"></i>
         </div>
         {/* Quote */}
-        <div className="text-[#4a5240] text-2xl font-serif leading-none mb-2 select-none">&ldquo;</div>
-        <p className="text-[11px] text-gray-600 leading-relaxed">
+        <div className="text-white/40 text-2xl font-serif leading-none mb-2 select-none">&ldquo;</div>
+        <p className="text-[11px] text-white/80 leading-relaxed italic">
           {testimonials[testOffset].text}
         </p>
       </div>
     </div>
 
     {/* Mobile/Tablet Testimonial Card (shown inline) */}
-    <div className="block lg:hidden bg-white p-6 border-t border-gray-100">
+    <div className="block lg:hidden bg-[#4a5240] p-6 border-t border-white/10">
       <div className="flex items-center gap-3 mb-3">
-        <div className="w-10 h-10 rounded-full bg-[#4a5240] flex items-center justify-center text-white font-bold text-sm border-2 border-white shadow-md">
+        <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-sm border-2 border-white/30 shadow-md">
           {testimonials[testOffset].name.charAt(0)}
         </div>
         <div>
-          <div className="text-[13px] font-semibold text-[#161f18]">{testimonials[testOffset].name}</div>
-          <div className="text-[10px] text-gray-400">{testimonials[testOffset].role}</div>
+          <div className="text-[13px] font-semibold text-white">{testimonials[testOffset].name}</div>
+          <div className="text-[10px] text-white/60">{testimonials[testOffset].role}</div>
         </div>
       </div>
       <div className="text-amber-400 text-[11px] flex space-x-0.5 mb-3">
@@ -1028,7 +888,7 @@ export default function Home() {
         <i className="fa-solid fa-star"></i>
         <i className="fa-solid fa-star"></i>
       </div>
-      <p className="text-[12px] text-gray-600 leading-relaxed">
+      <p className="text-[12px] text-white/80 leading-relaxed italic">
         &ldquo;{testimonials[testOffset].text}&rdquo;
       </p>
     </div>
@@ -1081,7 +941,7 @@ export default function Home() {
     {/* Center/Right - Image */}
     <div className="w-full lg:w-[48%] relative min-h-[200px] lg:min-h-0">
       <img
-        src="/images/cta-entrance.jpg"
+        src="/images/prime-view-gate.jpg"
         alt="A Better Tomorrow - Housing Society Entrance"
         className="w-full h-full object-cover"
       />
@@ -1098,57 +958,7 @@ export default function Home() {
   </div>
 </section>
 {/*  END: CTASection  */}
-{/*  BEGIN: MainFooter  */}
-<footer className="bg-[#181a1b] pt-24 pb-12 mt-16" data-purpose="main-footer">
-  <div className="max-w-7xl mx-auto px-6 sm:px-12">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 pb-20 items-start">
-      
-      {/* Newsletter Section */}
-      <div>
-        <h3 className="text-white text-3xl sm:text-4xl font-semibold mb-8 tracking-tight">NEWSLETTER</h3>
-        {newsletterStatus ? (
-          <div className="text-white text-sm font-medium bg-[#f97316]/20 px-6 py-4 rounded-full border border-[#f97316]/50 inline-block">
-            Subscribed successfully!
-          </div>
-        ) : (
-          <form className="flex w-full max-w-[420px] bg-white rounded-full p-[3px]" onSubmit={(e) => { e.preventDefault(); setNewsletterStatus(true); }}>
-            <input 
-              required 
-              className="flex-1 bg-transparent text-[#1a1c19] text-[11px] font-semibold tracking-wide px-6 py-3 border-0 placeholder-gray-400 focus:outline-none focus:ring-0" 
-              placeholder="ENTER YOUR EMAIL HERE" 
-              type="email"
-            />
-            <button 
-              className="bg-[#f97316] text-white text-[13px] font-semibold px-8 py-3 rounded-full hover:bg-[#ea580c] transition-colors whitespace-nowrap" 
-              type="submit">
-              Subscribe
-            </button>
-          </form>
-        )}
-      </div>
-      
-      {/* Follow Us Section */}
-      <div className="flex flex-col md:items-end md:text-right w-full">
-        <h3 className="text-white text-3xl sm:text-4xl font-semibold mb-8 tracking-tight w-full md:w-auto text-left md:text-right">FOLLOW US</h3>
-        <div className="flex items-center gap-4 w-full md:w-auto justify-start md:justify-end">
-          <a aria-label="Facebook" className="w-[46px] h-[46px] rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/90 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-facebook-f"></i></a>
-          <a aria-label="Instagram" className="w-[46px] h-[46px] rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/90 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-instagram"></i></a>
-          <a aria-label="YouTube" className="w-[46px] h-[46px] rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/90 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-youtube"></i></a>
-          <a aria-label="Twitter" className="w-[46px] h-[46px] rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/90 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all text-sm" href="#" onClick={handleDummyClick}><i className="fa-brands fa-twitter"></i></a>
-        </div>
-      </div>
-
-    </div>
-    
-    {/* Bottom Copyright */}
-    <div className="border-t border-white/10 pt-8 text-center md:text-left">
-      <p className="text-[11px] text-gray-500 font-normal">
-        Copyright © 2024 | All Rights Reserved. Empowering Your Real Estate Journey. Together, We Build Your Future!
-      </p>
-    </div>
-  </div>
-</footer>
-{/*  END: MainFooter  */}
+<Footer />
 
     </main>
   );
