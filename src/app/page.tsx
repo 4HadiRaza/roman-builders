@@ -116,7 +116,7 @@ export default function Home() {
 
 <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
 {/*  Hero Text & CTA  */}
-<div className="max-w-2xl space-y-6 pt-16 md:pt-28">
+<div className="max-w-2xl space-y-6 pt-36 md:pt-56">
 <h1 className="text-5xl lg:text-[4.5rem] font-bold text-[#1a1c19] tracking-tight leading-[1.05]">
             Building Your Future<br/>in Abbottabad
           </h1>
