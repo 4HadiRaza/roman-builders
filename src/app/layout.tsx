@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" });
 
 export const metadata: Metadata = {
   title: "Roman Builders & Developers",
@@ -22,7 +23,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
       </head>
-      <body className={`${inter.variable} font-sans bg-[#F8FAFC] text-slate-800 antialiased`}>
+      <body className={`${outfit.variable} ${playfair.variable} font-sans bg-[#F8FAFC] text-slate-800 antialiased`}>
         {children}
       </body>
     </html>

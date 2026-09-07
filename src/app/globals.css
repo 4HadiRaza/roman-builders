@@ -6,6 +6,9 @@
   --color-brand-light: #EBF5F7;
   --color-brand-accent: #38BDF8;
   --color-brand-muted: #64748B;
+  
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
 }
 
 @layer utilities {
