@@ -7,7 +7,7 @@ export default function Home() {
 
   const [activeProcessStep, setActiveProcessStep] = useState(0);
 
-  const [projectOffset, setProjectOffset] = useState(0);
+
 
   const [testOffset, setTestOffset] = useState(0);
 
@@ -16,13 +16,7 @@ export default function Home() {
     { name: "Aisha Rehman", role: "Homeowner", text: "Exceptional service and dedication! They walked us through every step of building our dream home in Hazara." }
   ];
 
-  const initialProjects = [
-    { title: "Prime View Co-Operative Housing Society Ltd", image: "/images/project1.jpg", price: "$3200", bed: 3, bath: 2, sqft: 1400 },
-    { title: "Green City Abbottabad", image: "/images/project2.jpg", price: "$3800", bed: 4, bath: 2, sqft: 1200 },
-    { title: "Roman Valley Society", image: "/images/project3.jpg", price: "$3600", bed: 3, bath: 2, sqft: 1100 },
-    { title: "Hazara Residencia", image: "/images/project4.jpg", price: "$3000", bed: 3, bath: 2, sqft: 950 }
-  ];
-  const displayProjects = [...initialProjects, ...initialProjects].slice(projectOffset, projectOffset + 4);
+
 
 
 
@@ -500,52 +494,119 @@ export default function Home() {
 </section>
 {/*  END: ExpertiseSection  */}
 
-{/*  BEGIN: PopularPropertySection  */}
-<section className="max-w-7xl mx-auto px-6 sm:px-8 py-20" data-purpose="popular-properties" id="properties">
-{/*  Header with controls  */}
-<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-<div>
-<h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Popular Projects</h2>
-</div>
-<p className="text-xs text-slate-500 max-w-md leading-relaxed">
-        Discover the top-choice housing societies our clients love. These premium projects combine prime locations, modern urban planning, and unmatched lifestyle — perfect for your next move.
-      </p>
-</div>
+{/*  BEGIN: FlagshipProjectShowcase  */}
+<section className="bg-gray-50 py-20 lg:py-28 relative overflow-hidden" data-purpose="flagship-project" id="properties">
 
-{/*  Cards Slider  */}
-<div className="overflow-hidden -mx-3 px-3 py-4">
-  <div 
-    className="flex transition-transform duration-700 ease-in-out"
-    style={{ transform: `translateX(-${projectOffset * (100 / 8)}%)` }}
-  >
-    {[...initialProjects, ...initialProjects].map((proj, idx) => (
-      <div key={idx} className="w-full sm:w-1/2 lg:w-1/4 shrink-0 px-3">
-        <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
-          <div className="h-44 bg-slate-200 overflow-hidden shrink-0">
-            <img alt={proj.title} className="w-full h-full object-cover" src={proj.image}/>
+  {/* Subtle decorative background elements */}
+  <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#4a5240]/[0.03] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+  <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#4a5240]/[0.02] rounded-full translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
+
+  <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+
+    {/* Section Header */}
+    <div className="text-center mb-14 lg:mb-20">
+      <div className="flex items-center justify-center gap-4 mb-5">
+        <div className="hidden sm:block w-16 h-[1px] bg-[#4a5240]/30"></div>
+        <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.25em] text-[#4a5240] uppercase">Our Flagship Project</span>
+        <div className="hidden sm:block w-16 h-[1px] bg-[#4a5240]/30"></div>
+      </div>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#161f18] tracking-tight leading-[1.1]">
+        Discover Prime View
+      </h2>
+    </div>
+
+    {/* Main Content - Asymmetrical 60/40 Split */}
+    <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 xl:gap-20 items-stretch">
+
+      {/* Left Side - Visual (60%) */}
+      <div className="w-full lg:w-[58%] xl:w-[60%] shrink-0">
+        <div className="relative rounded-2xl overflow-hidden shadow-lg group h-[320px] sm:h-[400px] lg:h-[520px] xl:h-[560px]">
+          <img
+            src="/images/prime-view-showcase.jpg"
+            alt="Aerial view of Prime View Co-Operative Housing Society in Abbottabad with mountain backdrop"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          />
+          {/* Gradient overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+
+          {/* Floating badge on image */}
+          <div className="absolute top-5 left-5 sm:top-6 sm:left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-md border border-white/50 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+            <span className="text-[9px] sm:text-[10px] font-bold tracking-wider text-[#161f18] uppercase">Now Selling</span>
           </div>
-          <div className="p-4 space-y-3 grow flex flex-col justify-center">
-            <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-sm text-slate-900 line-clamp-1 pr-2">{proj.title}</h3>
-              <a onClick={handleDummyClick} className="text-slate-400 hover:text-slate-700 text-xs shrink-0" href="#"><i className="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
+
+          {/* Bottom location label */}
+          <div className="absolute bottom-5 left-5 sm:bottom-6 sm:left-6 flex items-center gap-2 text-white/90">
+            <i className="fa-solid fa-location-dot text-xs"></i>
+            <span className="text-[11px] sm:text-xs font-medium drop-shadow-md">Abbottabad, Hazara Division</span>
           </div>
         </div>
       </div>
-    ))}
+
+      {/* Right Side - Content (40%) */}
+      <div className="w-full lg:w-[42%] xl:w-[40%] flex flex-col justify-center gap-6 lg:gap-7">
+
+        {/* Project Title */}
+        <div>
+          <h3 className="text-2xl sm:text-3xl lg:text-[2.2rem] xl:text-4xl font-serif text-[#161f18] leading-[1.15] tracking-tight mb-4">
+            Prime View<br className="hidden sm:block" /> Co‑Operative Housing Society
+          </h3>
+
+          {/* Description */}
+          <p className="text-gray-500 text-[13px] sm:text-sm leading-relaxed max-w-md">
+            Experience unparalleled living in Abbottabad&apos;s premier cooperative housing society.
+            Prime View combines breathtaking natural landscapes with modern urban planning, offering
+            secure, legal, and thriving community spaces for your family&apos;s future.
+          </p>
+        </div>
+
+        {/* Feature List */}
+        <div className="space-y-3.5">
+          {[
+            { icon: "fa-circle-check", text: "TMA & EPA Approved" },
+            { icon: "fa-circle-check", text: "Underground Electrification" },
+            { icon: "fa-circle-check", text: "Modern Sewerage & Infrastructure" },
+            { icon: "fa-circle-check", text: "Prime Location with Mountain Views" },
+          ].map((feature, idx) => (
+            <div key={idx} className="flex items-center gap-3 group/feat">
+              <div className="w-7 h-7 rounded-full bg-[#4a5240]/10 flex items-center justify-center shrink-0 group-hover/feat:bg-[#4a5240]/20 transition-colors">
+                <i className={`fa-solid ${feature.icon} text-[#4a5240] text-xs`}></i>
+              </div>
+              <span className="text-[13px] sm:text-sm text-[#1a1c19] font-medium">{feature.text}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div className="w-full h-[1px] bg-gray-200"></div>
+
+        {/* CTA & Secondary */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-3 bg-[#2c3325] text-white pl-7 pr-2 py-2 rounded-full text-[13px] font-medium hover:bg-[#1a1f15] transition-all shadow-lg group/cta"
+          >
+            <span>Explore Prime View</span>
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover/cta:bg-white/30 transition-colors">
+              <i className="fa-solid fa-arrow-right text-[10px] group-hover/cta:translate-x-0.5 transition-transform"></i>
+            </div>
+          </a>
+          <a
+            href="#"
+            onClick={handleDummyClick}
+            className="inline-flex items-center gap-2 text-[#4a5240] text-[12px] font-semibold hover:text-[#2c3325] transition-colors border-b border-[#4a5240]/30 pb-0.5"
+          >
+            <i className="fa-solid fa-file-pdf text-[11px]"></i>
+            <span>Download Brochure</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
   </div>
-</div>
-{/*  Carousel arrows  */}
-<div className="flex items-center justify-center space-x-3 mt-8">
-<button onClick={() => setProjectOffset((p) => (p - 1 + 4) % 4)} className="w-8 h-8 rounded-full bg-[#4a5240]/80 hover:bg-[#4a5240] text-white flex items-center justify-center text-xs transition-colors cursor-pointer focus:outline-none shadow-sm">
-<i className="fa-solid fa-arrow-left pointer-events-none"></i>
-</button>
-<button onClick={() => setProjectOffset((p) => (p + 1) % 4)} className="w-8 h-8 rounded-full bg-[#3d4435] hover:bg-[#4a5240] text-white flex items-center justify-center text-xs transition-colors cursor-pointer focus:outline-none shadow-sm">
-<i className="fa-solid fa-arrow-right pointer-events-none"></i>
-</button>
-</div>
 </section>
-{/*  END: PopularPropertySection  */}
+{/*  END: FlagshipProjectShowcase  */}
 
 {/*  BEGIN: FoundersSection  */}
 <section className="w-full bg-[#f8f7f4] py-16 relative overflow-hidden" data-purpose="founders">
