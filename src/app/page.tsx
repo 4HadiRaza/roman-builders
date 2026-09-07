@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const [contactStatus, setContactStatus] = useState(false);
   const [newsletterStatus, setNewsletterStatus] = useState(false);
 
   const [activeProcessStep, setActiveProcessStep] = useState(0);
@@ -583,7 +582,9 @@ export default function Home() {
         {/* CTA & Secondary */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <a
-            href="#contact"
+            href="https://prime-view-livid.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-[#2c3325] text-white pl-7 pr-2 py-2 rounded-full text-[13px] font-medium hover:bg-[#1a1f15] transition-all shadow-lg group/cta"
           >
             <span>Explore Prime View</span>
@@ -746,44 +747,178 @@ export default function Home() {
 {/*  END: FoundersSection  */}
 
 {/*  BEGIN: WorkProcessSection  */}
-<section className="bg-[#f8f7f4] py-24" data-purpose="work-process" id="process">
-<div className="max-w-7xl mx-auto px-6 sm:px-8">
-<h2 className="text-3xl sm:text-4xl font-bold text-center text-[#1a1c19] tracking-tight mb-16">Our Work Process</h2>
-<div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-{/*  Process step icon sidebar  */}
-<div className="lg:col-span-3 flex lg:flex-col justify-around lg:justify-start gap-6" data-purpose="process-steps">
-{processSteps.map((step, index) => (
-  <button 
-    key={index} 
-    onClick={() => setActiveProcessStep(index)}
-    className={`flex flex-col items-center text-center p-5 rounded-2xl border transition-colors w-full cursor-pointer focus:outline-none shadow-sm ${activeProcessStep === index ? 'bg-[#4a5240] text-white border-[#4a5240]' : 'bg-white text-[#1a1c19] hover:bg-gray-50 border-gray-100'}`}>
-    <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-lg mb-3 transition-colors ${activeProcessStep === index ? 'bg-white/20' : 'bg-gray-100 text-[#4a5240]'}`}>
-      <i className={`fa-solid ${step.icon}`}></i>
-    </div>
-    <span className={`text-xs font-semibold transition-colors ${activeProcessStep === index ? 'text-white' : 'text-[#1a1c19]/70'}`}>{step.title}</span>
-  </button>
-))}
-</div>
-{/*  Featured process preview card  */}
-<div className="lg:col-span-9 relative rounded-3xl overflow-hidden shadow-md border border-gray-100 group bg-white h-[400px] sm:h-[500px] lg:h-[600px]">
-{processSteps.map((step, index) => (
-  <div key={index} className={`absolute inset-0 transition-all duration-1000 ease-in-out ${activeProcessStep === index ? 'opacity-100 z-10' : 'opacity-0 z-0 scale-[1.02]'}`}>
-    <img alt={step.heading} className="w-full h-full object-cover" src={step.image}/>
-    <div className={`absolute inset-y-0 right-0 w-full sm:w-1/2 bg-white/95 backdrop-blur-md p-8 sm:p-12 flex flex-col justify-center text-[#1a1c19] transition-all duration-700 ease-out ${activeProcessStep === index ? 'translate-x-0 opacity-100 delay-300' : 'translate-x-8 opacity-0'}`}>
-      <h3 className="text-2xl font-bold mb-4">{step.heading}</h3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-8 font-light">
-        {step.description}
+<section className="bg-[#f8f7f4] py-20 lg:py-28 relative overflow-hidden" data-purpose="work-process" id="process">
+
+  {/* Subtle decorative leaf shapes */}
+  <div className="absolute top-10 left-0 w-[200px] h-[400px] bg-[#4a5240]/[0.03] rounded-r-full pointer-events-none"></div>
+  <div className="absolute bottom-20 left-4 w-[120px] h-[240px] bg-[#4a5240]/[0.02] rounded-r-full pointer-events-none"></div>
+
+  <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+
+    {/* Section Header */}
+    <div className="text-center mb-14 lg:mb-16">
+      <div className="flex items-center justify-center gap-4 mb-5">
+        <div className="hidden sm:block w-16 h-[1px] bg-[#4a5240]/30"></div>
+        <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.25em] text-[#4a5240] uppercase">Our Work Process</span>
+        <div className="hidden sm:block w-16 h-[1px] bg-[#4a5240]/30"></div>
+      </div>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#161f18] tracking-tight leading-[1.1] mb-4">
+        From Land to <span className="italic">Lasting Communities</span>
+      </h2>
+      <p className="text-gray-500 text-[13px] sm:text-sm max-w-lg mx-auto leading-relaxed">
+        A transparent and structured process to turn vision into thriving communities.
       </p>
-      <div className="flex items-center justify-between text-sm pt-6 border-t border-gray-100">
-        <span className="text-gray-500 font-medium">0{index + 1} <span className="text-[#1a1c19] ml-2">{step.title}</span></span>
-        <button onClick={() => setActiveProcessStep((index + 1) % processSteps.length)} className="text-[#4a5240] hover:text-[#1a1c19] font-medium flex items-center gap-1.5 focus:outline-none transition-colors">Next <i className="fa-solid fa-chevron-right text-xs"></i></button>
+    </div>
+
+    {/* Main Content Card */}
+    <div className="bg-[#e8e5da] rounded-3xl overflow-hidden shadow-xl relative">
+      <div className="flex flex-col lg:flex-row min-h-[480px] sm:min-h-[520px] lg:min-h-[560px]">
+
+        {/* Left Sidebar - Process Steps */}
+        <div className="w-full lg:w-[260px] xl:w-[280px] shrink-0 p-6 sm:p-8 lg:py-10 lg:px-6 flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-visible" data-purpose="process-steps">
+          {processSteps.map((step, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveProcessStep(index)}
+              className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all w-full min-w-[200px] lg:min-w-0 cursor-pointer focus:outline-none group ${
+                activeProcessStep === index
+                  ? 'bg-[#4a5240] text-white shadow-lg'
+                  : 'bg-white/60 text-[#1a1c19] hover:bg-white/90 border border-white/50'
+              }`}
+            >
+              {/* Step Number */}
+              <span className={`text-[10px] font-bold tracking-wider shrink-0 ${
+                activeProcessStep === index ? 'text-white/50' : 'text-gray-400'
+              }`}>0{index + 1}</span>
+
+              {/* Icon */}
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                activeProcessStep === index
+                  ? 'bg-white/20'
+                  : 'bg-[#4a5240]/10'
+              }`}>
+                <i className={`fa-solid ${step.icon} text-sm ${
+                  activeProcessStep === index ? 'text-white' : 'text-[#4a5240]'
+                }`}></i>
+              </div>
+
+              {/* Title */}
+              <span className={`text-[12px] font-semibold text-left leading-tight flex-1 ${
+                activeProcessStep === index ? 'text-white' : 'text-[#1a1c19]'
+              }`}>{step.title}</span>
+
+              {/* Arrow */}
+              <i className={`fa-solid fa-chevron-right text-[9px] shrink-0 ${
+                activeProcessStep === index ? 'text-white/60' : 'text-gray-400'
+              }`}></i>
+            </button>
+          ))}
+
+          {/* Bottom Left Decorative Text */}
+          <div className="hidden lg:block mt-auto pt-6">
+            <div className="text-[7px] font-bold tracking-[0.2em] text-[#4a5240]/40 uppercase leading-loose">
+              People<br/>Places<br/>Progress<br/>Together
+            </div>
+          </div>
+        </div>
+
+        {/* Right Content Area - Image + Overlay */}
+        <div className="flex-1 relative rounded-2xl lg:rounded-l-3xl overflow-hidden m-2 sm:m-3 lg:m-3 lg:ml-0">
+
+          {/* Background Images (crossfade) */}
+          {processSteps.map((step, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                activeProcessStep === index ? 'opacity-100 z-[1]' : 'opacity-0 z-0 scale-[1.02]'
+              }`}
+            >
+              <img alt={step.heading} className="w-full h-full object-cover" src={step.image}/>
+            </div>
+          ))}
+
+          {/* Dark gradient for right-side text legibility */}
+          <div className="absolute inset-0 z-[2] bg-gradient-to-l from-[#2b3628]/90 via-[#2b3628]/40 to-transparent pointer-events-none"></div>
+
+          {/* Right Content Overlay */}
+          {processSteps.map((step, index) => (
+            <div
+              key={index}
+              className={`absolute inset-y-0 right-0 w-full sm:w-[55%] lg:w-[48%] z-[3] p-6 sm:p-8 lg:p-10 flex flex-col justify-center transition-all duration-700 ease-out ${
+                activeProcessStep === index
+                  ? 'translate-x-0 opacity-100 delay-300'
+                  : 'translate-x-6 opacity-0'
+              }`}
+            >
+              {/* Step Label */}
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-[9px] font-bold tracking-[0.2em] text-white/60 uppercase">Step 0{index + 1}</span>
+                <div className="w-8 h-[1px] bg-white/30"></div>
+              </div>
+
+              {/* Heading */}
+              <h3 className="text-2xl sm:text-3xl font-serif text-white leading-[1.15] tracking-tight mb-4">
+                {step.heading}
+              </h3>
+
+              {/* Description */}
+              <p className="text-[13px] text-white/70 leading-relaxed mb-6 max-w-[320px]">
+                {step.description}
+              </p>
+
+              {/* Learn More Button */}
+              <div>
+                <a href="#" onClick={handleDummyClick} className="inline-flex items-center gap-2 border border-white/30 text-white px-5 py-2.5 rounded-lg text-[12px] font-medium hover:bg-white/10 transition-colors">
+                  <span>Learn More</span>
+                  <i className="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          ))}
+
+          {/* Bottom Bar */}
+          <div className="absolute bottom-0 left-0 right-0 z-[4] flex items-center justify-between px-5 sm:px-8 py-4 bg-gradient-to-t from-black/40 to-transparent">
+            {/* Step Counter + Progress */}
+            <div className="flex items-center gap-3">
+              <span className="text-white font-bold text-sm">0{activeProcessStep + 1}</span>
+              <span className="text-white/40 text-sm font-light">/ 0{processSteps.length}</span>
+              <div className="w-16 sm:w-24 h-[2px] bg-white/20 rounded-full ml-2 overflow-hidden">
+                <div
+                  className="h-full bg-white rounded-full transition-all duration-700 ease-out"
+                  style={{ width: `${((activeProcessStep + 1) / processSteps.length) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+
+            {/* Navigation Arrows */}
+            <div className="flex space-x-2">
+              <button
+                onClick={() => setActiveProcessStep((prev) => (prev - 1 + processSteps.length) % processSteps.length)}
+                className="w-9 h-9 rounded-full border border-white/20 text-white hover:bg-white/10 flex items-center justify-center text-[10px] focus:outline-none transition-colors"
+              >
+                <i className="fa-solid fa-arrow-left"></i>
+              </button>
+              <button
+                onClick={() => setActiveProcessStep((prev) => (prev + 1) % processSteps.length)}
+                className="w-9 h-9 rounded-full bg-white text-[#3d4435] flex items-center justify-center text-[10px] hover:bg-gray-100 focus:outline-none transition-colors"
+              >
+                <i className="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          {/* Bottom Right - Script Text */}
+          <div className="absolute bottom-12 right-6 sm:right-10 z-[3] hidden sm:block">
+            <div className="font-serif italic text-white/30 text-xl sm:text-2xl leading-tight select-none">
+              A Better<br/>
+              <span className="text-2xl sm:text-3xl">Tomorrow</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
-))}
-</div>
-</div>
-</div>
 </section>
 {/*  END: WorkProcessSection  */}
 
@@ -791,104 +926,178 @@ export default function Home() {
 
 {/*  BEGIN: TestimonialsSection  */}
 <section className="max-w-7xl mx-auto px-6 sm:px-8 py-12" data-purpose="testimonials">
-<div className="bg-[#4a5240] rounded-3xl overflow-hidden shadow-xl p-8 sm:p-12 text-white">
-<div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-{/*  Testimonial heading  */}
-<div className="lg:col-span-4 space-y-4">
-<h2 className="text-2xl sm:text-3xl font-bold tracking-tight leading-snug">
-            What our clients say about us
-          </h2>
-<p className="text-xs text-white/70 font-light leading-relaxed">
-            Hear from our happy clients about how we&apos;ve helped bring their vision to life.
-          </p>
-<a className="inline-flex items-center gap-1 text-xs font-medium border border-white/30 px-4 py-2 rounded-full hover:bg-white/10 transition-colors" href="#" onClick={handleDummyClick}>
-<span>View all</span>
-<i className="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
-</a>
-</div>
-{/*  Featured Testimonial Card with Image Background  */}
-<div className="lg:col-span-8 relative rounded-2xl overflow-hidden p-6 sm:p-8 bg-cover bg-center border border-white/10" style={{'backgroundImage': 'linear-gradient(rgba(74, 82, 64, 0.85), rgba(74, 82, 64, 0.95)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBfZeawvZgcC7kTWBUlCYhW4uWWzVDVMqvqiuzfsQsRKpBvP3zQs53hp6wbljI4uYekiGqFz6RttqTcC722nWzlTOZswtJQy1QSgiAJfELw69PRo4vx8gLA6dcF4jCUGS8aij90wFBdkLLsYfgK4ruyUPO4xYx4xmVYgHDOGp0iI6v4DO8FCy_QV2CJXOALDjBMJe6m-UsG9JXE7mrMsFMW9aWyk2Eh19QSd6CMKBfkpl6hU0rWTg6Nhw")'}}>
-<div className="relative z-10 space-y-4">
-{/*  Author Avatar & Details  */}
-<div className="flex items-center space-x-3">
-<div className="w-11 h-11 rounded-full object-cover border-2 border-white/30 bg-white/20 flex items-center justify-center text-white font-bold text-lg">
-  {testimonials[testOffset].name.charAt(0)}
-</div>
-<div>
-<div className="text-xs font-semibold text-white">{testimonials[testOffset].name}</div>
-<div className="text-[10px] text-white/60">{testimonials[testOffset].role}</div>
-</div>
-</div>
-{/*  Quote Text  */}
-<blockquote className="text-xs text-white/90 leading-relaxed font-light min-h-[60px]">
-  &quot;{testimonials[testOffset].text}&quot;
-</blockquote>
-{/*  Rating Stars and Carousel Navigation  */}
-<div className="flex items-center justify-between pt-2">
-<div className="text-amber-400 text-xs flex space-x-1">
-<i className="fa-solid fa-star"></i>
-<i className="fa-solid fa-star"></i>
-<i className="fa-solid fa-star"></i>
-<i className="fa-solid fa-star"></i>
-<i className="fa-solid fa-star"></i>
-</div>
-<div className="flex space-x-2">
-<button onClick={() => setTestOffset((p) => (p - 1 + testimonials.length) % testimonials.length)} className="w-8 h-8 rounded-full border border-white/20 text-white hover:bg-white/10 flex items-center justify-center text-[10px] focus:outline-none transition-colors">
-<i className="fa-solid fa-arrow-left"></i>
-</button>
-<button onClick={() => setTestOffset((p) => (p + 1) % testimonials.length)} className="w-8 h-8 rounded-full bg-white text-[#4a5240] flex items-center justify-center text-[10px] hover:bg-gray-100 focus:outline-none transition-colors">
-<i className="fa-solid fa-arrow-right"></i>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+  {/* Testimonials Card */}
+  <div className="rounded-3xl overflow-hidden shadow-xl relative flex flex-col lg:flex-row min-h-[340px] sm:min-h-[380px]">
+
+    {/* Left Side - Dark Green Content */}
+    <div className="relative z-10 bg-[#3d4435] text-white p-8 sm:p-10 lg:p-12 w-full lg:w-[42%] flex flex-col justify-between gap-6">
+
+      {/* Eyebrow */}
+      <div>
+        <div className="flex items-center gap-3 mb-5">
+          <span className="text-[9px] font-bold tracking-[0.2em] text-white/70 uppercase">Client Testimonials</span>
+          <div className="w-10 h-[1px] bg-white/30"></div>
+        </div>
+
+        {/* Main Heading */}
+        <h2 className="text-3xl sm:text-4xl font-serif text-white leading-[1.1] tracking-tight">
+          Trusted by<br/>Happy Families
+        </h2>
+      </div>
+
+      {/* Avatars + Stars */}
+      <div className="flex items-center gap-4">
+        <div className="flex -space-x-2">
+          <div className="w-9 h-9 rounded-full bg-[#5a6350] border-2 border-[#3d4435] flex items-center justify-center text-white text-xs font-bold">A</div>
+          <div className="w-9 h-9 rounded-full bg-[#6b7360] border-2 border-[#3d4435] flex items-center justify-center text-white text-xs font-bold">R</div>
+          <div className="w-9 h-9 rounded-full bg-[#7d8570] border-2 border-[#3d4435] flex items-center justify-center text-white text-xs font-bold">K</div>
+        </div>
+        <div className="text-amber-400 text-sm flex space-x-0.5">
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+        </div>
+      </div>
+
+      {/* Navigation Arrows + Quote Text */}
+      <div className="flex items-end justify-between">
+        <div className="flex space-x-2">
+          <button onClick={() => setTestOffset((p) => (p - 1 + testimonials.length) % testimonials.length)} className="w-9 h-9 rounded-full border border-white/20 text-white hover:bg-white/10 flex items-center justify-center text-[10px] focus:outline-none transition-colors">
+            <i className="fa-solid fa-arrow-left"></i>
+          </button>
+          <button onClick={() => setTestOffset((p) => (p + 1) % testimonials.length)} className="w-9 h-9 rounded-full bg-white text-[#3d4435] flex items-center justify-center text-[10px] hover:bg-gray-100 focus:outline-none transition-colors">
+            <i className="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        <div className="hidden sm:flex items-end gap-2">
+          <span className="text-[#7d8570] text-4xl font-serif leading-none select-none">&ldquo;</span>
+          <div className="text-[8px] font-bold tracking-[0.2em] text-white/40 uppercase leading-relaxed">
+            Homes<br/>People Love
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Center - Floating Testimonial Card (overlaps both sides on desktop) */}
+    <div className="absolute z-20 top-1/2 left-[38%] -translate-y-1/2 hidden lg:block w-[260px]">
+      <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/60">
+        {/* Author */}
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-10 h-10 rounded-full bg-[#4a5240] flex items-center justify-center text-white font-bold text-sm border-2 border-white shadow-md">
+            {testimonials[testOffset].name.charAt(0)}
+          </div>
+          <div>
+            <div className="text-[13px] font-semibold text-[#161f18]">{testimonials[testOffset].name}</div>
+            <div className="text-[10px] text-gray-400">{testimonials[testOffset].role}</div>
+          </div>
+        </div>
+        {/* Stars */}
+        <div className="text-amber-400 text-[11px] flex space-x-0.5 mb-3">
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+        </div>
+        {/* Quote */}
+        <div className="text-[#4a5240] text-2xl font-serif leading-none mb-2 select-none">&ldquo;</div>
+        <p className="text-[11px] text-gray-600 leading-relaxed">
+          {testimonials[testOffset].text}
+        </p>
+      </div>
+    </div>
+
+    {/* Mobile/Tablet Testimonial Card (shown inline) */}
+    <div className="block lg:hidden bg-white p-6 border-t border-gray-100">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="w-10 h-10 rounded-full bg-[#4a5240] flex items-center justify-center text-white font-bold text-sm border-2 border-white shadow-md">
+          {testimonials[testOffset].name.charAt(0)}
+        </div>
+        <div>
+          <div className="text-[13px] font-semibold text-[#161f18]">{testimonials[testOffset].name}</div>
+          <div className="text-[10px] text-gray-400">{testimonials[testOffset].role}</div>
+        </div>
+      </div>
+      <div className="text-amber-400 text-[11px] flex space-x-0.5 mb-3">
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+      </div>
+      <p className="text-[12px] text-gray-600 leading-relaxed">
+        &ldquo;{testimonials[testOffset].text}&rdquo;
+      </p>
+    </div>
+
+    {/* Right Side - Image */}
+    <div className="hidden lg:block w-[58%] relative">
+      <img
+        src="/images/testimonial-building.jpg"
+        alt="Roman Builders luxury project"
+        className="w-full h-full object-cover"
+      />
+      {/* Subtle gradient overlay from left for blending */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#3d4435]/20 via-transparent to-transparent pointer-events-none"></div>
+    </div>
+  </div>
 </section>
 {/*  END: TestimonialsSection  */}
-{/*  BEGIN: LeadFormSection  */}
-<section className="max-w-7xl mx-auto px-6 sm:px-8 py-16" data-purpose="lead-capture" id="contact">
-<div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-lg border-0 bg-[#4a5240]">
-{/*  Contact Form  */}
-<div className="lg:col-span-6 p-8 sm:p-10 text-white">
-<h2 className="text-xl sm:text-2xl font-bold mb-6">Still haven&apos;t found what you&apos;re looking for?</h2>
-{contactStatus ? (
-  <div className="bg-green-500/20 border border-green-500/50 text-white p-4 rounded-xl text-sm font-medium text-center">
-    Thank you for your inquiry. Our team will contact you shortly!
+
+{/*  BEGIN: CTASection  */}
+<section className="max-w-7xl mx-auto px-6 sm:px-8 py-6 pb-12" data-purpose="cta-section" id="contact">
+
+  {/* CTA Card */}
+  <div className="rounded-3xl overflow-hidden shadow-xl relative flex flex-col lg:flex-row min-h-[280px] sm:min-h-[320px]">
+
+    {/* Left Side - Olive Content */}
+    <div className="relative z-10 bg-[#e8e5da] p-8 sm:p-10 lg:p-12 w-full lg:w-[38%] flex flex-col justify-center gap-6">
+
+      {/* Eyebrow */}
+      <div className="flex items-center gap-3">
+        <span className="text-[9px] font-bold tracking-[0.2em] text-[#4a5240] uppercase">Get in Touch</span>
+        <div className="w-10 h-[1px] bg-[#4a5240]/30"></div>
+      </div>
+
+      {/* Main Heading */}
+      <h2 className="text-3xl sm:text-4xl font-serif text-[#161f18] leading-[1.1] tracking-tight">
+        Start Your<br/>Journey Today
+      </h2>
+
+      {/* CTA Button */}
+      <div>
+        <a href="#" onClick={(e) => { e.preventDefault(); const el = document.getElementById('contact-form-modal'); if(el) el.classList.toggle('hidden'); alert('This feature will be available soon!'); }} className="inline-flex items-center gap-3 bg-[#4a5240] text-white pl-7 pr-2 py-2.5 rounded-full text-[13px] font-medium hover:bg-[#3d4435] transition-all shadow-lg group/cta">
+          <span>Send a Request</span>
+          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover/cta:bg-white/30 transition-colors">
+            <i className="fa-solid fa-arrow-right text-[10px] group-hover/cta:translate-x-0.5 transition-transform"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    {/* Center/Right - Image */}
+    <div className="w-full lg:w-[48%] relative min-h-[200px] lg:min-h-0">
+      <img
+        src="/images/cta-entrance.jpg"
+        alt="A Better Tomorrow - Housing Society Entrance"
+        className="w-full h-full object-cover"
+      />
+      {/* Subtle left gradient for blending */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#e8e5da]/30 via-transparent to-transparent pointer-events-none"></div>
+    </div>
+
+    {/* Far Right - Dark Green Strip with Vertical Text */}
+    <div className="hidden lg:flex bg-[#3d4435] w-[14%] items-center justify-center p-6 relative">
+      <div className="text-[8px] font-bold tracking-[0.25em] text-white/50 uppercase leading-loose text-center">
+        People<br/>Places<br/>Progress<br/>Together
+      </div>
+    </div>
   </div>
-) : (
-  <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setContactStatus(true); }}>
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-  <input required className="w-full bg-white text-[#1a1c19] text-xs px-4 py-3 rounded-xl border-0 placeholder-gray-400 focus:ring-2 focus:ring-white/50 outline-none" placeholder="First name" type="text"/>
-  <input required className="w-full bg-white text-[#1a1c19] text-xs px-4 py-3 rounded-xl border-0 placeholder-gray-400 focus:ring-2 focus:ring-white/50 outline-none" placeholder="Last name" type="text"/>
-  </div>
-  <input required className="w-full bg-white text-[#1a1c19] text-xs px-4 py-3 rounded-xl border-0 placeholder-gray-400 focus:ring-2 focus:ring-white/50 outline-none" placeholder="Inquiry Type (e.g., NOC Consultation)" type="text"/>
-  <textarea className="w-full bg-white text-[#1a1c19] text-xs px-4 py-3 rounded-xl border-0 placeholder-gray-400 focus:ring-2 focus:ring-white/50 outline-none" placeholder="Project Details / Notes" rows={3}></textarea>
-  <button className="w-full bg-[#1a1c19] text-white text-xs font-semibold py-3 rounded-xl hover:bg-black transition-colors mt-2 shadow-sm" type="submit">
-              Submit Request
-            </button>
-  </form>
-)}
-</div>
-{/*  Architectural Showcase Beside Form  */}
-<div className="lg:col-span-6 relative bg-slate-800 min-h-[280px]">
-<img alt="Abbottabad Townhouse" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1q1YGqF0_SynstJYEnAAxdLr3eTiyO_H0ssThwUUvLRb08PVqRZ-_nZgazhiCVk5NrvVC1AzmiUn22uGM_-rbwqB4lKjaf-yHSI0gpY6_8xZHm82fseuHfWgiQGgJXI68Q-EaHKZOBcRyuxIeZvEafPswLNv_m00WKCKR9eCjV399wZu_r7LyURXlpYIku4HnZ1tbVJDdUb90kpqjpSFq1WVay5DrxldJbb1CkfswCnm7Dq_EJzmdsQ"/>
-<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-between p-6 text-white text-xs">
-<span className="font-medium">Abbottabad Townhouse</span>
-<div className="flex space-x-2">
-<button className="w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center text-[10px]">
-<i className="fa-solid fa-arrow-left"></i>
-</button>
-<button className="w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center text-[10px]">
-<i className="fa-solid fa-arrow-right"></i>
-</button>
-</div>
-</div>
-</div>
-</div>
 </section>
-{/*  END: LeadFormSection  */}
+{/*  END: CTASection  */}
 {/*  BEGIN: MainFooter  */}
 <footer className="bg-[#181a1b] pt-24 pb-12 mt-16" data-purpose="main-footer">
   <div className="max-w-7xl mx-auto px-6 sm:px-12">
