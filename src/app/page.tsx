@@ -437,7 +437,7 @@ export default function Home() {
 {/*  END: ExpertiseSection  */}
 
 {/*  BEGIN: FlagshipProjectShowcase  */}
-<section className="bg-[#e8e4db] py-20 lg:py-28 relative overflow-hidden" data-purpose="flagship-project" id="properties">
+<section className="bg-[#e8e4db] py-20 lg:py-28 relative overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/1869b0ac-06a2-47c9-af5f-b288b4eddcc6.png')" }} data-purpose="flagship-project" id="properties">
 
   {/* Subtle decorative background elements */}
   <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#4a5240]/[0.03] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
