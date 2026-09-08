@@ -663,7 +663,7 @@ export default function Home() {
 {/*  END: FoundersSection  */}
 
 {/*  BEGIN: WorkProcessSection  */}
-<section className="bg-[#e8e4db] py-20 lg:py-28 relative overflow-hidden" data-purpose="work-process" id="process">
+<section className="bg-[#e8e4db] py-20 lg:py-28 relative overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/3a722bdd-c888-4825-89bc-9a172c4c4710.png')" }} data-purpose="work-process" id="process">
 
   {/* Subtle decorative leaf shapes */}
   <div className="absolute top-10 left-0 w-[200px] h-[400px] bg-[#4a5240]/[0.03] rounded-r-full pointer-events-none"></div>
