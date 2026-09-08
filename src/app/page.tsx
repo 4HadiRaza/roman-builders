@@ -82,9 +82,8 @@ export default function Home() {
 <div className="fixed top-0 left-0 w-full z-50 px-4 sm:px-8 pt-4 sm:pt-6 pointer-events-none">
   <header className="relative pointer-events-auto max-w-7xl mx-auto px-6 py-3 flex items-center justify-between bg-white/70 backdrop-blur-md rounded-full shadow-lg border border-white/50 transition-all">
   {/*  Brand Logo  */}
-  <a className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1c19] flex flex-col justify-center leading-none hover:opacity-80 transition-opacity" data-purpose="brand-logo" href="#" onClick={handleDummyClick}>
-  <span>Roman Builders</span>
-  <span className="text-[10px] sm:text-xs text-[#1a1c19]/70 font-medium tracking-wide mt-1">& Developers</span>
+  <a className="flex items-center hover:opacity-80 transition-opacity" data-purpose="brand-logo" href="#" onClick={handleDummyClick}>
+    <img src="/Asset 2@4x.png" alt="Roman Builders &amp; Developers" className="h-10 sm:h-12 w-auto object-contain" />
   </a>
   {/*  Desktop Navigation Links  */}
   <nav className="hidden md:flex items-center space-x-12 text-[13px] font-medium text-[#4a5240]" data-purpose="primary-navigation">
@@ -138,7 +137,7 @@ export default function Home() {
 </div>
 {/*  END: HeroAndHeaderWrapper  */}
 {/*  BEGIN: VideoSection  */}
-<section className="w-full bg-[#fdfcf8] relative overflow-hidden pt-20 pb-16 z-20" data-purpose="video-presentation" id="story">
+<section className="w-full bg-[#ede9e0] relative overflow-hidden pt-20 pb-16 z-20" data-purpose="video-presentation" id="story">
   
   {/* Abstract Background SVG (Mountains/Curves) */}
   <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center opacity-30">
@@ -322,8 +321,8 @@ export default function Home() {
         {/* Services Grid (Horizontal on desktop) */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           {/* Card 1 */}
-          <div className="bg-[#fcfbf9] rounded-3xl p-5 sm:p-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] border border-[#e0ddd0]/50 hover:-translate-y-1 transition-transform">
-            <div className="w-10 h-10 rounded-full bg-[#e8e5da] text-[#4a5240] flex items-center justify-center mb-4">
+          <div className="bg-[#e2ddd4] rounded-3xl p-5 sm:p-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.07)] border border-[#d4cfc5]/60 hover:-translate-y-1 transition-transform">
+            <div className="w-10 h-10 rounded-full bg-[#cec9bf] text-[#4a5240] flex items-center justify-center mb-4">
               <i className="fa-solid fa-map-location-dot text-[13px]"></i>
             </div>
             <div className="text-[10px] text-gray-900 font-bold mb-2">01</div>
@@ -334,8 +333,8 @@ export default function Home() {
           </div>
           
           {/* Card 2 */}
-          <div className="bg-[#fcfbf9] rounded-3xl p-5 sm:p-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] border border-[#e0ddd0]/50 hover:-translate-y-1 transition-transform">
-            <div className="w-10 h-10 rounded-full bg-[#e8e5da] text-[#4a5240] flex items-center justify-center mb-4">
+          <div className="bg-[#e2ddd4] rounded-3xl p-5 sm:p-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.07)] border border-[#d4cfc5]/60 hover:-translate-y-1 transition-transform">
+            <div className="w-10 h-10 rounded-full bg-[#cec9bf] text-[#4a5240] flex items-center justify-center mb-4">
               <i className="fa-solid fa-file-contract text-[13px]"></i>
             </div>
             <div className="text-[10px] text-gray-900 font-bold mb-2">02</div>
@@ -346,7 +345,7 @@ export default function Home() {
           </div>
           
           {/* Card 3 */}
-          <div className="bg-[#fcfbf9] rounded-3xl p-5 sm:p-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] border border-[#e0ddd0]/50 hover:-translate-y-1 transition-transform">
+          <div className="bg-[#e2ddd4] rounded-3xl p-5 sm:p-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.07)] border border-[#d4cfc5]/60 hover:-translate-y-1 transition-transform">
             <div className="w-10 h-10 rounded-full bg-[#e8e5da] text-[#4a5240] flex items-center justify-center mb-4">
               <i className="fa-solid fa-helmet-safety text-[13px]"></i>
             </div>
@@ -438,7 +437,7 @@ export default function Home() {
 {/*  END: ExpertiseSection  */}
 
 {/*  BEGIN: FlagshipProjectShowcase  */}
-<section className="bg-gray-50 py-20 lg:py-28 relative overflow-hidden" data-purpose="flagship-project" id="properties">
+<section className="bg-[#e8e4db] py-20 lg:py-28 relative overflow-hidden" data-purpose="flagship-project" id="properties">
 
   {/* Subtle decorative background elements */}
   <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#4a5240]/[0.03] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
@@ -554,7 +553,7 @@ export default function Home() {
 {/*  END: FlagshipProjectShowcase  */}
 
 {/*  BEGIN: FoundersSection  */}
-<section className="w-full bg-[#f8f7f4] py-16 relative overflow-hidden" data-purpose="founders">
+<section className="w-full bg-[#ede9e0] py-16 relative overflow-hidden" data-purpose="founders">
   <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
     
     {/* Top Header */}
@@ -616,7 +615,7 @@ export default function Home() {
       {/* Divider */}
       <div className="hidden lg:flex flex-col items-center justify-center shrink-0 w-16 relative">
         <div className="h-[90%] w-px bg-[#4a5240]/20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="bg-[#f8f7f4] py-6 z-10 text-center">
+        <div className="bg-[#ede9e0] py-6 z-10 text-center">
           <p className="text-[9px] font-bold tracking-[0.2em] text-[#4a5240]/60 uppercase leading-loose">Different<br/>Strengths<br/>A Stronger<br/>Tomorrow</p>
         </div>
       </div>
@@ -664,7 +663,7 @@ export default function Home() {
 {/*  END: FoundersSection  */}
 
 {/*  BEGIN: WorkProcessSection  */}
-<section className="bg-[#f8f7f4] py-20 lg:py-28 relative overflow-hidden" data-purpose="work-process" id="process">
+<section className="bg-[#e8e4db] py-20 lg:py-28 relative overflow-hidden" data-purpose="work-process" id="process">
 
   {/* Subtle decorative leaf shapes */}
   <div className="absolute top-10 left-0 w-[200px] h-[400px] bg-[#4a5240]/[0.03] rounded-r-full pointer-events-none"></div>
@@ -1016,6 +1015,23 @@ export default function Home() {
 </section>
 {/*  END: CTASection  */}
 <Footer />
+
+    {/* Floating WhatsApp Button */}
+    <a
+      href="https://wa.me/923001234567"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      className="fixed bottom-6 right-6 z-[999] group"
+    >
+      <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] shadow-[0_4px_24px_rgba(37,211,102,0.5)] hover:shadow-[0_6px_32px_rgba(37,211,102,0.7)] transition-all duration-300 hover:scale-110 active:scale-95">
+        {/* Pulse ring */}
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30 pointer-events-none"></span>
+        <svg viewBox="0 0 32 32" className="w-7 h-7 fill-white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.469 2.027 7.77L0 32l8.469-2.003A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.14 22.86c-.34.955-1.99 1.825-2.74 1.938-.7.105-1.585.15-2.557-.16-.59-.19-1.347-.443-2.314-.867-4.07-1.757-6.724-5.843-6.926-6.113-.202-.27-1.642-2.185-1.642-4.17s1.04-2.96 1.41-3.366c.37-.406.806-.507 1.074-.507.27 0 .538.002.773.013.248.012.58-.094.908.693.34.81 1.156 2.796 1.258 2.998.1.202.168.438.033.706-.134.27-.202.437-.403.673-.202.236-.425.527-.606.708-.202.2-.412.417-.177.818.235.4 1.044 1.72 2.24 2.786 1.54 1.372 2.838 1.796 3.24 2 .4.202.633.168.868-.1.235-.27 1.007-1.176 1.275-1.58.27-.403.538-.336.908-.202.37.134 2.348 1.107 2.75 1.31.4.202.667.302.767.47.1.168.1.977-.24 1.932z"/>
+        </svg>
+      </div>
+    </a>
 
     </main>
   );
